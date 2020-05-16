@@ -33,6 +33,22 @@ main{
         height: 300px;
         margin-left: 20px;
         margin-bottom: 20px;
+        box-shadow: 4px 4px 4px black;
+        background-color: $Orinoco_Color;
+        margin-bottom: 50px;
+        
+    }
+    img{
+        width: 300px;
+        height: 195px;
+    }
+    h2{
+        text-align: center;
+        color: #9D62DA;
+    }
+    p{
+        text-align: center;
+        font-weight: bold;
     }
 }
 }
