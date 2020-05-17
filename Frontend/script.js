@@ -1,3 +1,4 @@
+
 /*Lien avec l'API */
 getAllTeddies = () => {
     return new Promise((resolve) => {
@@ -64,17 +65,26 @@ getAllTeddies = () => {
     let prix_produit_simba = document.createElement("h3");
     let img_produit_simba = document.createElement("img");
     let description_produit_simba = document.createElement("p");
+    let ajouteraupanier = document.createElement('button');
+    let select_Produit = document.createElement('select');
+    
+
    
     page_Liste_produit.appendChild(titre_produit_simba);
     page_Liste_produit.appendChild(prix_produit_simba);
     page_Liste_produit.appendChild(img_produit_simba);
     page_Liste_produit.appendChild(description_produit_simba);
-  
+    page_Liste_produit.appendChild(ajouteraupanier);
+    page_Liste_produit.appendChild(select_Produit);
+    
+    
     titre_produit_simba.innerHTML = simba.name;
     prix_produit_simba.innerHTML = simba.price;
     img_produit_simba.src = "/backend/images/teddy_1.jpg";
     description_produit_simba.innerHTML = simba.description;
-  
+    ajouteraupanier.innerHTML = "ajouter au panier";
+    
+    
     var container_PageProduit = document.querySelector('main');
     container_PageProduit.appendChild(page_Liste_produit);
   };
@@ -248,5 +258,10 @@ getAllTeddies = () => {
     var container_PageProduit = document.querySelector('main');
     container_PageProduit.appendChild(page_Liste_produit);
   };
+
+
+  /* Panier */
+
+
   
  

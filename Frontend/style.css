@@ -47,24 +47,37 @@ main section div {
           box-shadow: 4px 4px 4px black;
   background-color: #F3EAF1;
   margin-bottom: 50px;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  -webkit-transition: .1s ease-in-out;
+  -moz-animation: .1s ease-in-out;
+  -o-animation: .1s ease-in-out;
+  transition: .1s ease-in-out;
 }
 
-main section img {
+main section div:hover {
+  -webkit-transform: scale(1.1);
+  -moz-animation: scale(1.1);
+  -o-animation: scale(1.1);
+  transform: scale(1.1);
+}
+
+main img {
   width: 300px;
   height: 195px;
 }
 
-main section h2 {
+main h2 {
   text-align: center;
   color: #9D62DA;
 }
 
-main section p {
+main p {
   text-align: center;
   font-weight: bold;
 }
 
-main section a {
+main a {
   text-decoration: none;
 }
 
@@ -110,5 +123,26 @@ article h3 {
 
 article p {
   text-align: center;
+}
+
+article button {
+  font-size: 20px;
+  display: block;
+  margin: auto;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  -webkit-transition: .1s ease-in-out;
+  -moz-animation: .1s ease-in-out;
+  -o-animation: .1s ease-in-out;
+  transition: .1s ease-in-out;
+  margin-bottom: 20px;
+}
+
+article button:hover {
+  background-color: #9D62DA;
+  -webkit-transform: scale(1.1);
+  -moz-animation: scale(1.1);
+  -o-animation: scale(1.1);
+  transform: scale(1.1);
 }
 /*# sourceMappingURL=style.css.map */

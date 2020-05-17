@@ -37,7 +37,22 @@ main{
         box-shadow: 4px 4px 4px black;
         background-color: $Orinoco_Color;
         margin-bottom: 50px;
-        
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        -webkit-transition: .1s ease-in-out;
+        -moz-animation: .1s ease-in-out;
+        -o-animation: .1s ease-in-out;
+        transition: .1s ease-in-out; 
+    
+
+        &:hover {
+        -webkit-transform: scale(1.1);
+        -moz-animation: scale(1.1);
+        -o-animation: scale(1.1);
+        transform: scale(1.1);
+    
+}
+}
     }
     img{
         width: 300px;
@@ -55,7 +70,7 @@ main{
         text-decoration: none;
     }
 }
-}
+
 
 footer{
     width: 100%;
@@ -92,5 +107,25 @@ article{
     }
     p{
         text-align: center;
+    }
+    button{
+        font-size: 20px;
+        display: block;
+        margin : auto;
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        -webkit-transition: .1s ease-in-out;
+        -moz-animation: .1s ease-in-out;
+        -o-animation: .1s ease-in-out;
+        transition: .1s ease-in-out; 
+        margin-bottom: 20px;
+        &:hover{
+            background-color: #9D62DA;
+                -webkit-transform: scale(1.1);
+                -moz-animation: scale(1.1);
+                -o-animation: scale(1.1);
+                transform: scale(1.1);
+        }
+        
     }
 }
