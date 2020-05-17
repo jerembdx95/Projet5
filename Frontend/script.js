@@ -38,11 +38,12 @@ getAllTeddies = () => {
 
 /* création Simba */
 
+
   let container = document.createElement("div");
   let titre = document.createElement("h2");
   let prix = document.createElement("p");
   let img = document.createElement("img");
-
+  
   let parent = document.getElementById("liste_produit");
 
   parent.appendChild(container);
@@ -52,9 +53,33 @@ getAllTeddies = () => {
 
   titre.innerHTML = simba.name;
   prix.innerHTML = simba.price;
-  img.src = "/backend/images/teddy_1.jpg"
+  img.src = "/backend/images/teddy_1.jpg";
 
-  /* création fuzzy */
+  container.onclick = function (){
+    var page_Liste_produit = document.querySelector('section')
+    page_Liste_produit.innerHTML = '';
+    
+    page_Liste_produit = document.createElement('article');
+    let titre_produit_simba = document.createElement("h2");
+    let prix_produit_simba = document.createElement("h3");
+    let img_produit_simba = document.createElement("img");
+    let description_produit_simba = document.createElement("p");
+   
+    page_Liste_produit.appendChild(titre_produit_simba);
+    page_Liste_produit.appendChild(prix_produit_simba);
+    page_Liste_produit.appendChild(img_produit_simba);
+    page_Liste_produit.appendChild(description_produit_simba);
+  
+    titre_produit_simba.innerHTML = simba.name;
+    prix_produit_simba.innerHTML = simba.price;
+    img_produit_simba.src = "/backend/images/teddy_1.jpg";
+    description_produit_simba.innerHTML = simba.description;
+  
+    var container_PageProduit = document.querySelector('main');
+    container_PageProduit.appendChild(page_Liste_produit);
+  };
+
+  /* création Fuzzy */
 
   let container_fuzzy = document.createElement("div");
   let titre_fuzzy = document.createElement("h2");
@@ -71,6 +96,31 @@ getAllTeddies = () => {
   titre_fuzzy.innerHTML = fuzzy.name;
   prix_fuzzy.innerHTML = fuzzy.price;
   img_fuzzy.src = "/backend/images/teddy_2.jpg"
+  container_fuzzy.onclick = function (){
+    var page_Liste_produit = document.querySelector('section')
+    page_Liste_produit.innerHTML = '';
+    
+    page_Liste_produit = document.createElement('article');
+    let titre_produit_fuzzy = document.createElement("h2");
+    let prix_produit_fuzzy = document.createElement("h3");
+    let img_produit_fuzzy = document.createElement("img");
+    let description_fuzzy = document.createElement("p");
+   
+    page_Liste_produit.appendChild(titre_produit_fuzzy);
+    page_Liste_produit.appendChild(prix_produit_fuzzy);
+    page_Liste_produit.appendChild(img_produit_fuzzy);
+    page_Liste_produit.appendChild(description_fuzzy);
+  
+    titre_produit_fuzzy.innerHTML = fuzzy.name;
+    prix_produit_fuzzy.innerHTML = fuzzy.price;
+    img_produit_fuzzy.src = "/backend/images/teddy_2.jpg";
+    description_fuzzy.innerHTML = fuzzy.description;
+  
+    var container_PageProduit = document.querySelector('main');
+    container_PageProduit.appendChild(page_Liste_produit);
+  };
+
+
 
    /* création Squishy */
 
@@ -90,6 +140,31 @@ getAllTeddies = () => {
    prix_Squishy.innerHTML = Squishy.price;
    img_Squishy.src = "/backend/images/teddy_3.jpg"
 
+   container_Squishy.onclick = function (){
+    var page_Liste_produit = document.querySelector('section')
+    page_Liste_produit.innerHTML = '';
+    
+    page_Liste_produit = document.createElement('article');
+    let titre_produit_Squishy = document.createElement("h2");
+    let prix_produit_Squishy = document.createElement("h3");
+    let img_produit_Squishy = document.createElement("img");
+    let description_Squishy = document.createElement("p");
+   
+    page_Liste_produit.appendChild(titre_produit_Squishy);
+    page_Liste_produit.appendChild(prix_produit_Squishy);
+    page_Liste_produit.appendChild(img_produit_Squishy);
+    page_Liste_produit.appendChild(description_Squishy);
+  
+    titre_produit_Squishy.innerHTML = Squishy.name;
+    prix_produit_Squishy.innerHTML = Squishy.price;
+    img_produit_Squishy.src = "/backend/images/teddy_3.jpg";
+    description_Squishy.innerHTML = Squishy.description;
+  
+    var container_PageProduit = document.querySelector('main');
+    container_PageProduit.appendChild(page_Liste_produit);
+  };
+
+
    /* création Sprinkles */
 
    let container_Sprinkles = document.createElement("div");
@@ -107,6 +182,30 @@ getAllTeddies = () => {
    titre_Sprinkles.innerHTML = Sprinkles.name;
    prix_Sprinkles.innerHTML = Sprinkles.price;
    img_Sprinkles.src = "/backend/images/teddy_4.jpg"
+
+   container_Sprinkles.onclick = function (){
+    var page_Liste_produit = document.querySelector('section')
+    page_Liste_produit.innerHTML = '';
+    
+    page_Liste_produit = document.createElement('article');
+    let titre_produit_Sprinkles = document.createElement("h2");
+    let prix_produit_Sprinkles = document.createElement("h3");
+    let img_produit_Sprinkles = document.createElement("img");
+    let description_Sprinkles = document.createElement("p");
+   
+    page_Liste_produit.appendChild(titre_produit_Sprinkles);
+    page_Liste_produit.appendChild(prix_produit_Sprinkles);
+    page_Liste_produit.appendChild(img_produit_Sprinkles);
+    page_Liste_produit.appendChild(description_Sprinkles);
+  
+    titre_produit_Sprinkles.innerHTML = Sprinkles.name;
+    prix_produit_Sprinkles.innerHTML =Sprinkles.price;
+    img_produit_Sprinkles.src = "/backend/images/teddy_3.jpg";
+    description_Sprinkles.innerHTML = Sprinkles.description;
+  
+    var container_PageProduit = document.querySelector('main');
+    container_PageProduit.appendChild(page_Liste_produit);
+  };
 
    /* création Alfred */
 
@@ -126,7 +225,28 @@ getAllTeddies = () => {
    prix_Alfred.innerHTML = Alfred.price;
    img_Alfred.src = "/backend/images/teddy_5.jpg"
 
-
-
-
-
+   container_Alfred.onclick = function (){
+    var page_Liste_produit = document.querySelector('section')
+    page_Liste_produit.innerHTML = '';
+    
+    page_Liste_produit = document.createElement('article');
+    let titre_produit_Alfred = document.createElement("h2");
+    let prix_produit_Alfred = document.createElement("h3");
+    let img_produit_Alfred = document.createElement("img");
+    let description_Alfred = document.createElement("p");
+   
+    page_Liste_produit.appendChild(titre_produit_Alfred);
+    page_Liste_produit.appendChild(prix_produit_Alfred);
+    page_Liste_produit.appendChild(img_produit_Alfred);
+    page_Liste_produit.appendChild(description_Alfred);
+  
+    titre_produit_Alfred.innerHTML = Alfred.name;
+    prix_produit_Alfred.innerHTML =Alfred.price;
+    img_produit_Alfred.src = "/backend/images/teddy_4.jpg";
+    description_Alfred.innerHTML = Alfred.description;
+  
+    var container_PageProduit = document.querySelector('main');
+    container_PageProduit.appendChild(page_Liste_produit);
+  };
+  
+ 
