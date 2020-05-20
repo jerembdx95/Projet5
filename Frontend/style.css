@@ -12,6 +12,21 @@ header {
           justify-content: space-between;
 }
 
+header ul {
+  list-style-type: none;
+  color: black;
+}
+
+header a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
+header i {
+  font-size: 40px;
+}
+
 main {
   background-color: white;
   padding-bottom: 70px;
@@ -144,5 +159,33 @@ article button:hover {
   -moz-animation: scale(1.1);
   -o-animation: scale(1.1);
   transform: scale(1.1);
+}
+
+article select {
+  display: block;
+  margin: auto;
+  margin-bottom: 10px;
+}
+
+.dropdown:hover > #cart-dropdown {
+  display: block;
+}
+
+/* page panier */
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+#total_commande {
+  text-align: left;
+  font-weight: bold;
 }
 /*# sourceMappingURL=style.css.map */

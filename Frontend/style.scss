@@ -10,6 +10,19 @@ header{
     height: 100px;
     display: flex;
     justify-content: space-between;
+    ul{
+        list-style-type: none;
+        color: black;
+    
+    }
+    a{
+        text-decoration: none;
+        color: black;
+        font-weight: bold;
+    }
+    i{
+        font-size: 40px;
+    }
 }
 
 main{
@@ -128,4 +141,31 @@ article{
         }
         
     }
+    select{
+        display: block;
+        margin: auto;
+        margin-bottom: 10px;
+    }
 }
+
+.dropdown:hover > #cart-dropdown{
+    display: block;
+}
+
+/* page panier */
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+
+  #total_commande{
+      text-align: left;
+      font-weight: bold;
+  }

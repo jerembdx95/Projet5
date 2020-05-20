@@ -10,12 +10,20 @@
          <body>
              <header>  
                 <div class='logo'><a href="./index.html"> <img src="/img/logo.png" alt="logo orinoco"></a></div> 
-                <div class= 'panier'><a href="./PagePanier.html"><i class="fas fa-shopping-cart"></i></a></div>
+                <div class="dropdown">
+                    <div id="cart">
+                        <p><span id="in-cart-items-num" ></span> <i class="fas fa-shopping-cart"></i></p>
+                        <p class='nombre_article'></p>
+                    </div>
+                
+                    <ul id="cart-dropdown" hidden>
+                        <li class="go-to-cart hidden"><a href="PagePanier.html">Voir le panier</a></li>
+                    </ul>
+                </div>
              </header>
             <main>
-                <h1 class='title'>Oriteddy, le spécialiste des ours en peluche !</h1>
+                <h1 id='title'>Oriteddy, le spécialiste des ours en peluche !</h1>
                 <section id='liste_produit'>
-page produit
                 </section>
             </main>
           <footer>
