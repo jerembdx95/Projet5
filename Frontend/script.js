@@ -21,19 +21,20 @@ getAllTeddies = () => {
 
  /* Objet ours */
 
- var ours = function ours(name, price, description, img, titre){ 
+ var ours = function ours(name, price, description, img, titre, id){ 
      this.name = name;
      this.price = price;
      this.description = description;
      this.img = img;
      this.titre = titre;
+     this.id = id;
     }
  
- var simba = new ours("simba",333 + ' €',"Fabuleux Ours en peluche made in France ! Fait main", "/backend/images/teddy_1.jpg", "Ours Simba")
- var fuzzy = new ours("fuzzy",234 + ' €',"Fabuleux Ours en peluche made in France ! Fait main", "/backend/images/teddy_2.jpg" , "Ours fuzzy")
- var Squishy = new ours("squishy",145 + ' €',"Fabuleux Ours en peluche made in France ! Fait main", "/backend/images/teddy_3.jpg", "Ours squishy")
- var Sprinkles = new ours("sprinkles",189 + ' €',"Fabuleux Ours en peluche made in France ! Fait main", "/backend/images/teddy_4.jpg", "Ours sprinkles")
- var Alfred = new ours("Alfred",220 + ' €',"Fabuleux Ours en peluche made in France ! Fait main", "/backend/images/teddy_5.jpg", "Ours ALfred")
+ var simba = new ours("simba",333 + ' €',"Fabuleux Ours en peluche made in France ! Fait main", "/backend/images/teddy_1.jpg", "Ours Simba", 1)
+ var fuzzy = new ours("fuzzy",234 + ' €',"Fabuleux Ours en peluche made in France ! Fait main", "/backend/images/teddy_2.jpg" , "Ours fuzzy", 2)
+ var Squishy = new ours("squishy",145 + ' €',"Fabuleux Ours en peluche made in France ! Fait main", "/backend/images/teddy_3.jpg", "Ours squishy", 3)
+ var Sprinkles = new ours("sprinkles",189 + ' €',"Fabuleux Ours en peluche made in France ! Fait main", "/backend/images/teddy_4.jpg", "Ours sprinkles", 4)
+ var Alfred = new ours("Alfred",220 + ' €',"Fabuleux Ours en peluche made in France ! Fait main", "/backend/images/teddy_5.jpg", "Ours ALfred", 5)
 
 const catalogue = [ simba , fuzzy , Squishy, Sprinkles, Alfred];
 
@@ -57,7 +58,7 @@ catalogue.forEach(element => {
   prix.innerHTML = element.price;
   img.src = element.img;
 
-  var objet1 = 0;
+  var objet = 0;
 
   /*Page produit*/
 
@@ -110,9 +111,9 @@ catalogue.forEach(element => {
     container_PageProduit.appendChild(page_Liste_produit);
 
     document.querySelector('button').addEventListener("click", function(){
-      ++ objet1
-    localStorage.setItem ('objet1', objet1)
-    var x = parseInt(localStorage.getItem('objet1'));
+      ++ objet
+    localStorage.setItem (element.id , objet)
+    var x = parseInt(localStorage.getItem(element.id));
     });}});
 
   ////////////////*  widjet Panier *///////////////////
@@ -138,7 +139,4 @@ var timeout;
           $('#cart-dropdown').hide();
       }
   });
-
-
-
 
