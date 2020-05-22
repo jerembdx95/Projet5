@@ -167,8 +167,9 @@ article select {
   margin-bottom: 10px;
 }
 
-.dropdown:hover > #cart-dropdown {
-  display: block;
+.description {
+  margin: 20px;
+  font-style: italic;
 }
 
 /* page panier */
@@ -187,6 +188,10 @@ td, th {
 #total_commande {
   text-align: left;
   font-weight: bold;
+}
+
+h4 {
+  text-decoration: underline;
 }
 
 /* Formulaire */
@@ -229,4 +234,6 @@ textarea {
   padding-left: 90px;
   margin-left: .5em;
 }
+
+/* widget panier */
 /*# sourceMappingURL=style.css.map */
