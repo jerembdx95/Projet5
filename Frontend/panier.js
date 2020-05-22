@@ -35,6 +35,7 @@ catalogue.forEach(element => {
     ligne1.appendChild(quantité_P1);
     var prix_P1 = document.createElement('th')
     ligne1.appendChild(prix_P1)
+    prix_P1.className = 'prix';
     }
     
     if (localStorage.getItem(element.id) > 0){
@@ -48,12 +49,16 @@ catalogue.forEach(element => {
 
 /* Total Commande */
 
+
+  
 var total = document.getElementById('total_commande');
 var element_total = document.createElement('p');
 total.appendChild(element_total);
-element_total.innerHTML = 
-        
+element_total.innerHTML = sum;
+  
 
+var yes = document.getElementsByClassName('prix');   
 
-
-
+var sum = yes.reduce(function(total, current){
+    return total + current;
+});
