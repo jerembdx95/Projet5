@@ -123,10 +123,15 @@ catalogue.forEach(element => {
     document.querySelector('button').addEventListener("click", function(){
       ++ objet
     localStorage.setItem (element.id , objet)
-    var x = parseInt(localStorage.getItem(element.id));
-    });}});
- 
-    
+    var x = parseInt(localStorage.getItem(element.id)
+  );
+    });
+    document.querySelector('button').addEventListener("click", function(){
+      alert('Le Produit à été ajouté au panier ! ');
+      location.reload();
+    });
+  }});
+
 
   ////////////////*  widjet Panier *///////////////////
 

@@ -1,4 +1,3 @@
-
 var ours = function ours(name, price, description, img, titre, id){ 
     this.name = name;
     this.price = price;
@@ -16,7 +15,7 @@ var Alfred = new ours("Alfred", 220 + ' €',"Entièrement tricoté à la main, 
 
 const catalogue = [ simba , fuzzy , Squishy, Sprinkles, Alfred];
 
-var x = 0;
+
 
 /////////////////////Page Panier//////////////////////
 
@@ -36,29 +35,39 @@ catalogue.forEach(element => {
     var prix_P1 = document.createElement('th')
     ligne1.appendChild(prix_P1)
     prix_P1.className = 'prix';
+    var supprimer = document.createElement('th')
+    ligne1.appendChild(supprimer)
     }
     
     if (localStorage.getItem(element.id) > 0){
         produit_panier.innerHTML = element.name;
         quantité_P1.innerHTML = localStorage.getItem(element.id);
         prix_P1.innerHTML = localStorage.getItem(element.id) * parseInt(element.price);
-        
-    };
+        supprimer.innerHTML = 'supprimer'; 
+        supprimer.onclick = function (){
+        localStorage.removeItem(element.id);
+        location.reload();
+        };
+    }
+    });
 
-});
+
+
+
+
+
+
+
+
+
 
 /* Total Commande */
 
-
-  
 var total = document.getElementById('total_commande');
 var element_total = document.createElement('p');
 total.appendChild(element_total);
-element_total.innerHTML = sum;
-  
+element_total.innerHTML = '';
 
-var yes = document.getElementsByClassName('prix');   
+ 
+ //--------------------FORMULAIRE----------------//
 
-var sum = yes.reduce(function(total, current){
-    return total + current;
-});
