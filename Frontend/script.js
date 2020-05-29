@@ -1,23 +1,24 @@
 
-/*Lien avec l'API */
 getAllTeddies = () => {
-    return new Promise((resolve) => {
-      let request = new XMLHttpRequest();
-      request.onreadystatechange = function () {
-        if (
-          this.readyState == XMLHttpRequest.DONE &&
-          this.status >= 200 &&
-          this.status < 400
-        ) {
-          resolve(JSON.parse(this.responseText));
-          console.log("Connecté");
-        } else {
-        }
-      };
-      request.open("GET", "http://localhost:3000/api/teddies/" );
-      request.send();
-    });
-  };
+var xhr = new XMLHttpRequest();
+
+xhr.onreadystatechange = function (){
+  if (this.readyState == 4 && this.status == 200){
+      console.log(JSON.parse(this.response));
+      
+  }
+}
+
+xhr.open("GET", "http://localhost:3000/api/teddies", true);
+xhr.send();
+
+};
+
+async function teddies() {
+  const teddies = await getAllTeddies();
+}
+
+
 
 
   let indice = document.getElementById('cart');
@@ -26,10 +27,9 @@ getAllTeddies = () => {
   indice_widget.innerHTML = localStorage.length;
   indice_widget.className = 'indicePanier';
 
-
- /* Objet ours */
-
- var ours = function ours(name, price, description, img, titre, id){ 
+ 
+/*
+  var ours = function ours(name, price, description, img, titre, id){ 
      this.name = name;
      this.price = price;
      this.description = description;
@@ -37,7 +37,6 @@ getAllTeddies = () => {
      this.titre = titre;
      this.id = id;
     }
- 
     var simba = new ours("simba",333 + ' €',"Entièrement tricoté à la main, ce doudou est le cadeau idéal pour une naissance. Sa confection minutieuse participe à préserver des savoir-faire et des techniques respectueuses des humains et de la nature. Il est réalisé en pure laine baby alpaga, une matière anti-bactérienne très douce, particulièrement adaptée aux peaux sensibles et est facile à tenir grâce à ses longues pattes.", "/backend/images/teddy_1.jpg", "Ours Simba", 1)
     var fuzzy = new ours("fuzzy",234 + ' €',"Entièrement tricoté à la main, ce doudou est le cadeau idéal pour une naissance. Sa confection minutieuse participe à préserver des savoir-faire et des techniques respectueuses des humains et de la nature. Il est réalisé en pure laine baby alpaga, une matière anti-bactérienne très douce, particulièrement adaptée aux peaux sensibles et est facile à tenir grâce à ses longues pattes.", "/backend/images/teddy_2.jpg",  "Ours fuzzy", 2)
     var Squishy = new ours("squishy",145 + ' €',"Entièrement tricoté à la main, ce doudou est le cadeau idéal pour une naissance. Sa confection minutieuse participe à préserver des savoir-faire et des techniques respectueuses des humains et de la nature. Il est réalisé en pure laine baby alpaga, une matière anti-bactérienne très douce, particulièrement adaptée aux peaux sensibles et est facile à tenir grâce à ses longues pattes.", "/backend/images/teddy_3.jpg", "Ours squishy", 3)
@@ -46,7 +45,11 @@ getAllTeddies = () => {
 
 const catalogue = [ simba , fuzzy , Squishy, Sprinkles, Alfred];
 
- /* Création Produit, page principale + Page produit */
+
+ */
+
+
+
 
 catalogue.forEach(element => { 
   
@@ -68,7 +71,7 @@ catalogue.forEach(element => {
 
   var objet = 0;
 
-  /*Page produit*/
+  
 
   container.onclick = function (){
     var page_Liste_produit = document.querySelector('section')
@@ -133,7 +136,6 @@ catalogue.forEach(element => {
   }});
 
 
-  ////////////////*  widjet Panier *///////////////////
 
 var timeout;
 

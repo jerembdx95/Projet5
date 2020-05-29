@@ -3,9 +3,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const path = require('path');
 
-
 const teddyRoutes = require('./routes/teddy');
-
 
 const app = express();
 

@@ -51,16 +51,6 @@ catalogue.forEach(element => {
     }
     });
 
-
-
-
-
-
-
-
-
-
-
 /* Total Commande */
 
 var total = document.getElementById('total_commande');
