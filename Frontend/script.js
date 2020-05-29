@@ -1,5 +1,6 @@
+ /* Lien API */
 
-getAllTeddies = () => {
+
 var xhr = new XMLHttpRequest();
 
 xhr.onreadystatechange = function (){
@@ -12,13 +13,7 @@ xhr.onreadystatechange = function (){
 xhr.open("GET", "http://localhost:3000/api/teddies", true);
 xhr.send();
 
-};
-
-async function teddies() {
-  const teddies = await getAllTeddies();
-}
-
-
+///////////////////////////////////////////////////////////////::
 
 
   let indice = document.getElementById('cart');
@@ -28,7 +23,7 @@ async function teddies() {
   indice_widget.className = 'indicePanier';
 
  
-/*
+
   var ours = function ours(name, price, description, img, titre, id){ 
      this.name = name;
      this.price = price;
@@ -44,11 +39,6 @@ async function teddies() {
     var Alfred = new ours("Alfred",220 + ' €',"Entièrement tricoté à la main, ce doudou est le cadeau idéal pour une naissance. Sa confection minutieuse participe à préserver des savoir-faire et des techniques respectueuses des humains et de la nature. Il est réalisé en pure laine baby alpaga, une matière anti-bactérienne très douce, particulièrement adaptée aux peaux sensibles et est facile à tenir grâce à ses longues pattes.", "/backend/images/teddy_5.jpg", "Ours ALfred", 5)
 
 const catalogue = [ simba , fuzzy , Squishy, Sprinkles, Alfred];
-
-
- */
-
-
 
 
 catalogue.forEach(element => { 
