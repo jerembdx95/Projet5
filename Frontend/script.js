@@ -14,7 +14,7 @@ xhr.onreadystatechange = function (){
 xhr.open("GET", "http://localhost:3000/api/teddies", true);
 xhr.send();
 
-///////////////////////////////////////////////////////////////::
+/*
 
 
   let indice = document.getElementById('cart');
@@ -150,5 +150,5 @@ var timeout;
       }
   });
 
-
+*/
   
