@@ -1,36 +1,26 @@
  /* Lien API */
 
-
 var xhr = new XMLHttpRequest();
 var ours ;
 var data;
+var produit = [];
+
 
 xhr.onreadystatechange = function (){
   if (this.readyState == 4 && this.status == 200){
      data = JSON.parse(this.response);
      for (i=0 ; i < data.length ; i++){
-     
-    };
+      ours = {name: data[i].name , id: data[i]._id , description: data[i].description , img: data[i].imageUrl , price: data[i].price, colors: data[i].colors };
+      produit.push(ours);
+      
+   };
+   };
+  
   }
-
-}
-
-
 xhr.open("GET", "http://localhost:3000/api/teddies", true);
 xhr.send();
 
 /* création objet ours */
-
-
-
-
-
-
-
-
-
-
-
 
 
 
