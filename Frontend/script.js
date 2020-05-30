@@ -2,21 +2,41 @@
 
 
 var xhr = new XMLHttpRequest();
+var ours ;
+var data;
 
 xhr.onreadystatechange = function (){
   if (this.readyState == 4 && this.status == 200){
-      console.log(JSON.parse(this.response));
-      
-      
+     data = JSON.parse(this.response);
+     for (i=0 ; i < data.length ; i++){
+     
+    };
   }
+
 }
+
 
 xhr.open("GET", "http://localhost:3000/api/teddies", true);
 xhr.send();
 
+/* création objet ours */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*
-
-
   let indice = document.getElementById('cart');
   let indice_widget = document.createElement('p');
   indice.appendChild(indice_widget);
