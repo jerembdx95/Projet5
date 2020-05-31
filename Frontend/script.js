@@ -92,8 +92,6 @@ xhr.onreadystatechange = function (){
       ++ objet
     localStorage.setItem (element.id , objet);
 
-    
-  
     });
     document.querySelector('button').addEventListener("click", function(){
       alert('Le Produit à été ajouté au panier ! ');

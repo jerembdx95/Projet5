@@ -40,10 +40,7 @@ produit.forEach(element => {
     quantité_P1.innerHTML = localStorage.getItem(element.id);
     prix_P1.innerHTML = localStorage.getItem(element.id) * parseInt(element.price);
  
-    panier = {id: element.id, price: element.price};
-    
-      
-
+   
   /* supprimer element panier */
 
    supprimer.innerHTML = 'supprimer'; 
@@ -51,7 +48,6 @@ produit.forEach(element => {
    localStorage.removeItem(element.id);
    location.reload();   
                                   };
-     
     ;
 
   }})}}
@@ -61,6 +57,11 @@ produit.forEach(element => {
 
 /*     Total panier     */ 
 
+/* panier = {id: element.id, price: element.price}; */
+for (i=0 ; i < localStorage.length ; i++){
+   panier = {id: localStorage.key(i)};
+   totalpanier.push(panier);
+};
 
 
 
