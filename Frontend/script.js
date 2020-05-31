@@ -5,80 +5,39 @@ var xhr = new XMLHttpRequest();
 var ours ;
 var data;
 var produit = [];
-var catalogue;
+var panier;
 
 xhr.onreadystatechange = function (){
-  if (this.readyState == 4 && this.status == 200){
+  if (this.readyState == 4 && this.status == 200){  
      data = JSON.parse(this.response);
      
-     
-
-
-     /*
      for (i=0 ; i < data.length ; i++){
       ours = {name: data[i].name , id: data[i]._id , description: data[i].description , img: data[i].imageUrl , price: data[i].price, colors: data[i].colors };
-      produit.push(ours); */
-    
+      produit.push(ours); 
    };
+   /* page principale */
+
+   produit.forEach(element => {
+
+    let container = document.createElement("div");
+    let titre = document.createElement("h2");
+    let prix = document.createElement("p");
+    let img = document.createElement("img");
+    
+    let parent = document.getElementById("liste_produit");
   
-  }
-
-
-xhr.open("GET", "http://localhost:3000/api/teddies", true);
-xhr.send();
-
-/* création objet ours */
-
-
-
-/*
-  let indice = document.getElementById('cart');
-  let indice_widget = document.createElement('p');
-  indice.appendChild(indice_widget);
-  indice_widget.innerHTML = localStorage.length;
-  indice_widget.className = 'indicePanier';
-
- 
-
-  var ours = function ours(name, price, description, img, titre, id){ 
-     this.name = name;
-     this.price = price;
-     this.description = description;
-     this.img = img;
-     this.titre = titre;
-     this.id = id;
-    }
-    var simba = new ours("simba",333 + ' €',"Entièrement tricoté à la main, ce doudou est le cadeau idéal pour une naissance. Sa confection minutieuse participe à préserver des savoir-faire et des techniques respectueuses des humains et de la nature. Il est réalisé en pure laine baby alpaga, une matière anti-bactérienne très douce, particulièrement adaptée aux peaux sensibles et est facile à tenir grâce à ses longues pattes.", "/backend/images/teddy_1.jpg", "Ours Simba", 1)
-    var fuzzy = new ours("fuzzy",234 + ' €',"Entièrement tricoté à la main, ce doudou est le cadeau idéal pour une naissance. Sa confection minutieuse participe à préserver des savoir-faire et des techniques respectueuses des humains et de la nature. Il est réalisé en pure laine baby alpaga, une matière anti-bactérienne très douce, particulièrement adaptée aux peaux sensibles et est facile à tenir grâce à ses longues pattes.", "/backend/images/teddy_2.jpg",  "Ours fuzzy", 2)
-    var Squishy = new ours("squishy",145 + ' €',"Entièrement tricoté à la main, ce doudou est le cadeau idéal pour une naissance. Sa confection minutieuse participe à préserver des savoir-faire et des techniques respectueuses des humains et de la nature. Il est réalisé en pure laine baby alpaga, une matière anti-bactérienne très douce, particulièrement adaptée aux peaux sensibles et est facile à tenir grâce à ses longues pattes.", "/backend/images/teddy_3.jpg", "Ours squishy", 3)
-    var Sprinkles = new ours("sprinkles",189 + ' €',"Entièrement tricoté à la main, ce doudou est le cadeau idéal pour une naissance. Sa confection minutieuse participe à préserver des savoir-faire et des techniques respectueuses des humains et de la nature. Il est réalisé en pure laine baby alpaga, une matière anti-bactérienne très douce, particulièrement adaptée aux peaux sensibles et est facile à tenir grâce à ses longues pattes.", "/backend/images/teddy_4.jpg", "Ours sprinkles", 4)
-    var Alfred = new ours("Alfred",220 + ' €',"Entièrement tricoté à la main, ce doudou est le cadeau idéal pour une naissance. Sa confection minutieuse participe à préserver des savoir-faire et des techniques respectueuses des humains et de la nature. Il est réalisé en pure laine baby alpaga, une matière anti-bactérienne très douce, particulièrement adaptée aux peaux sensibles et est facile à tenir grâce à ses longues pattes.", "/backend/images/teddy_5.jpg", "Ours ALfred", 5)
-
-const catalogue = [ simba , fuzzy , Squishy, Sprinkles, Alfred];
-
-
-catalogue.forEach(element => { 
+    parent.appendChild(container);
+    container.appendChild(titre);
+    container.appendChild(prix);
+    container.appendChild(img);
   
-  let container = document.createElement("div");
-  let titre = document.createElement("h2");
-  let prix = document.createElement("p");
-  let img = document.createElement("img");
-  
-  let parent = document.getElementById("liste_produit");
+    titre.innerHTML = element.name;
+    prix.innerHTML = element.price;
+    img.src = element.img;
 
-  parent.appendChild(container);
-  container.appendChild(titre);
-  container.appendChild(prix);
-  container.appendChild(img);
+    var objet = 0;
 
-  titre.innerHTML = element.name;
-  prix.innerHTML = element.price;
-  img.src = element.img;
-
-  var objet = 0;
-
-  
-
+/* page produit */
   container.onclick = function (){
     var page_Liste_produit = document.querySelector('section')
     page_Liste_produit.innerHTML = '';
@@ -131,39 +90,28 @@ catalogue.forEach(element => {
 
     document.querySelector('button').addEventListener("click", function(){
       ++ objet
-    localStorage.setItem (element.id , objet)
-    var x = parseInt(localStorage.getItem(element.id)
-  );
+    localStorage.setItem (element.id , objet);
+
+    
+  
     });
     document.querySelector('button').addEventListener("click", function(){
       alert('Le Produit à été ajouté au panier ! ');
       location.reload();
     });
-  }});
+  }}
+  );
+  }
+  };
 
+xhr.open("GET", "http://localhost:3000/api/teddies", true);
+xhr.send();
 
+/* widget panier */
 
-var timeout;
+  let indice = document.getElementById('cart');
+  let indice_widget = document.createElement('p');
+  indice.appendChild(indice_widget);
+  indice_widget.innerHTML = localStorage.length;
+  indice_widget.className = 'indicePanier';
 
-  $('#cart').on({
-      mouseenter: function() {
-          $('#cart-dropdown').show();
-      },
-      mouseleave: function() {
-          timeout = setTimeout(function() {
-              $('#cart-dropdown').hide();
-          }, 200);
-      }
-  });
-  
-  $('#cart-dropdown').on({
-      mouseenter: function() {
-          clearTimeout(timeout);
-      },
-      mouseleave: function() {
-          $('#cart-dropdown').hide();
-      }
-  });
-
-*/
-  
