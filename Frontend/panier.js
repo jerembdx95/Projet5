@@ -4,8 +4,11 @@ var xhr = new XMLHttpRequest();
 var ours ;
 var data;
 var produit = [];
+var prix ;
 var Panier;
 var totalpanier = [];
+var valeurTotal = 0;
+var y = 0;
 
 xhr.onreadystatechange = function (){
   if (this.readyState == 4 && this.status == 200){
@@ -38,8 +41,11 @@ produit.forEach(element => {
     ligne1.appendChild(supprimer)
     produit_panier.innerHTML = element.name;
     quantité_P1.innerHTML = localStorage.getItem(element.id);
-    prix_P1.innerHTML = localStorage.getItem(element.id) * parseInt(element.price);
- 
+    prix = localStorage.getItem(element.id) * parseInt(element.price);
+    prix_P1.innerHTML = prix;
+
+   panier = {id: element.id, price: localStorage.getItem(element.id) * parseInt(element.price) };
+   totalpanier.push(panier);
    
   /* supprimer element panier */
 
@@ -47,22 +53,28 @@ produit.forEach(element => {
    supprimer.onclick = function (){
    localStorage.removeItem(element.id);
    location.reload();   
-                                  };
+   };
     ;
 
-  }})}}
+  }}
+
+  )
+  for (i=0; i<totalpanier.length; i++){
+     var x = totalpanier[i].price;
+      y += x;
+  }
+  
+   var commande = document.getElementById("total_commande")
+   var totalC = document.createElement ('p')
+   commande.appendChild(totalC);
+   totalC.innerHTML = y;
+
+}}
  xhr.open("GET", "http://localhost:3000/api/teddies", true);
  xhr.send();
 
 
 /*     Total panier     */ 
-
-/* panier = {id: element.id, price: element.price}; */
-for (i=0 ; i < localStorage.length ; i++){
-   panier = {id: localStorage.key(i)};
-   totalpanier.push(panier);
-};
-
 
 
 
