@@ -7,7 +7,6 @@ var produit = [];
 var prix ;
 var Panier;
 var totalpanier = [];
-var valeurTotal = 0;
 var y = 0;
 
 xhr.onreadystatechange = function (){
@@ -53,32 +52,23 @@ produit.forEach(element => {
    supprimer.onclick = function (){
    localStorage.removeItem(element.id);
    location.reload();   
-   };
-    ;
+   };;}})
 
-  }}
-
-  )
+  /* total commande */
   for (i=0; i<totalpanier.length; i++){
      var x = totalpanier[i].price;
-      y += x;
-  }
+      y += x;}
   
    var commande = document.getElementById("total_commande")
    var totalC = document.createElement ('p')
+   totalC.className = "total";
    commande.appendChild(totalC);
-   totalC.innerHTML = y;
+   totalC.innerHTML = y + " €";
 
 }}
- xhr.open("GET", "http://localhost:3000/api/teddies", true);
+ xhr.open("GET", "http://localhost:3000/api/teddies" , true);
  xhr.send();
 
-
-/*     Total panier     */ 
-
-
-
- //--------------------FORMULAIRE----------------//
 
 
  

@@ -171,8 +171,12 @@ table {
       font-weight: bold;
   }
 
-  h4{
-      text-decoration: underline;
+  .total{
+      text-align: left;
+      margin-left: 20px;
+      border: 1px solid black;
+      padding: 10px;
+      width: 60px;
   }
 
   /* Formulaire */
@@ -215,4 +219,5 @@ table {
     margin-left: .5em;
   }
 
-  /* widget panier */
+  /*page panier */
+

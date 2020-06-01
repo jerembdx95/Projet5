@@ -35,6 +35,11 @@ xhr.onreadystatechange = function (){
     prix.innerHTML = element.price;
     img.src = element.img;
 
+    let produitAction = document.createElement("a");
+    produitAction.setAttribute("href", "index.html?id=" + produit.id);
+    container.appendChild (produitAction);
+   
+
     var objet = 0;
 
 /* page produit */
@@ -49,14 +54,9 @@ xhr.onreadystatechange = function (){
     let description_produit = document.createElement("p");
     let ajouteraupanier = document.createElement('button');
     let select_Produit = document.createElement('select');
-    let select_option = document.createElement('option');
-    let select_value = document.createElement('value');
-    let select_option2 = document.createElement('option');
-    let select_value2 = document.createElement('value');
-    let select_option3 = document.createElement('option');
-    let select_value3 = document.createElement('value');
-    let select_option4 = document.createElement('option');
-    let select_value4 = document.createElement('value');
+    
+
+    produitAction.setAttribute("href", "produit.html?id=" + ours.id);
     
     page_Liste_produit.appendChild(titre_produit);
     page_Liste_produit.appendChild(prix_produit);
@@ -64,26 +64,15 @@ xhr.onreadystatechange = function (){
     page_Liste_produit.appendChild(description_produit);
     page_Liste_produit.appendChild(ajouteraupanier);
     page_Liste_produit.appendChild(select_Produit);
-    select_Produit.appendChild(select_option);
-    select_option.appendChild(select_value);
-    select_Produit.appendChild(select_option2);
-    select_option2.appendChild(select_value2);
-    select_Produit.appendChild(select_option3);
-    select_option3.appendChild(select_value3);
-    select_Produit.appendChild(select_option4);
-    select_option4.appendChild(select_value4);
-
+    page_Liste_produit.appendChild(produitAction);
+    
     description_produit.className = 'description';
-
+  
     titre_produit.innerHTML = element.name;
     prix_produit.innerHTML = element.price;
     img_produit.src = element.img;
     description_produit.innerHTML = element.description;
     ajouteraupanier.innerHTML = "ajouter au panier";
-    select_value.innerText = "Personnalisation";
-    select_value2.innerHTML = "bleu";
-    select_value3.innerHTML = "Vert";
-    select_value4.innerHTML = "Violet";
 
     var container_PageProduit = document.querySelector('main');
     container_PageProduit.appendChild(page_Liste_produit);
