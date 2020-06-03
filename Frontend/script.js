@@ -23,8 +23,8 @@ xhr.onreadystatechange = function (){
     let titre = document.createElement("h2");
     let prix = document.createElement("p");
     let img = document.createElement("img");
-    
     let parent = document.getElementById("liste_produit");
+
   
     parent.appendChild(container);
     container.appendChild(titre);
@@ -35,17 +35,18 @@ xhr.onreadystatechange = function (){
     prix.innerHTML = element.price;
     img.src = element.img;
 
-    let produitAction = document.createElement("a");
-    produitAction.setAttribute("href", "index.html?id=" + produit.id);
-    container.appendChild (produitAction);
-   
-
     var objet = 0;
 
 /* page produit */
-  container.onclick = function (){
+
+  
+    container.onclick = function (){
+
+    
     var page_Liste_produit = document.querySelector('section')
     page_Liste_produit.innerHTML = '';
+
+    
     
     page_Liste_produit = document.createElement('article');
     let titre_produit = document.createElement("h2");
@@ -54,18 +55,14 @@ xhr.onreadystatechange = function (){
     let description_produit = document.createElement("p");
     let ajouteraupanier = document.createElement('button');
     let select_Produit = document.createElement('select');
-    
-
-    produitAction.setAttribute("href", "produit.html?id=" + ours.id);
-    
+  
     page_Liste_produit.appendChild(titre_produit);
     page_Liste_produit.appendChild(prix_produit);
     page_Liste_produit.appendChild(img_produit);
     page_Liste_produit.appendChild(description_produit);
     page_Liste_produit.appendChild(ajouteraupanier);
     page_Liste_produit.appendChild(select_Produit);
-    page_Liste_produit.appendChild(produitAction);
-    
+  
     description_produit.className = 'description';
   
     titre_produit.innerHTML = element.name;
