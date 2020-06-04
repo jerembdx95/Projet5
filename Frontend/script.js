@@ -24,7 +24,6 @@ xhr.onreadystatechange = function (){
     let prix = document.createElement("p");
     let img = document.createElement("img");
     let parent = document.getElementById("liste_produit");
-
   
     parent.appendChild(container);
     container.appendChild(titre);
@@ -39,15 +38,12 @@ xhr.onreadystatechange = function (){
 
 /* page produit */
 
-  
     container.onclick = function (){
 
-    
+
     var page_Liste_produit = document.querySelector('section')
     page_Liste_produit.innerHTML = '';
 
-    
-    
     page_Liste_produit = document.createElement('article');
     let titre_produit = document.createElement("h2");
     let prix_produit = document.createElement("h3");
@@ -82,11 +78,7 @@ xhr.onreadystatechange = function (){
     document.querySelector('button').addEventListener("click", function(){
       alert('Le Produit à été ajouté au panier ! ');
       location.reload();
-    });
-  }}
-  );
-  }
-  };
+    });}});}};
 
 xhr.open("GET", "http://localhost:3000/api/teddies", true);
 xhr.send();
