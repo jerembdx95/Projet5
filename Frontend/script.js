@@ -23,13 +23,15 @@ xhr.onreadystatechange = function (){
     let titre = document.createElement("h2");
     let prix = document.createElement("p");
     let img = document.createElement("img");
+    
     let parent = document.getElementById("liste_produit");
   
     parent.appendChild(container);
+    
     container.appendChild(titre);
     container.appendChild(prix);
     container.appendChild(img);
-  
+
     titre.innerHTML = element.name;
     prix.innerHTML = element.price;
     img.src = element.img;
