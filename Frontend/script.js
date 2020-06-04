@@ -6,6 +6,7 @@ var ours ;
 var data;
 var produit = [];
 var panier;
+var URL = document.location.href;
 
 xhr.onreadystatechange = function (){
   if (this.readyState == 4 && this.status == 200){  
@@ -25,6 +26,8 @@ xhr.onreadystatechange = function (){
     let img = document.createElement("img");
     
     let parent = document.getElementById("liste_produit");
+
+    
   
     parent.appendChild(container);
     
@@ -41,6 +44,7 @@ xhr.onreadystatechange = function (){
 /* page produit */
 
     container.onclick = function (){
+
 
 
     var page_Liste_produit = document.querySelector('section')
@@ -71,6 +75,9 @@ xhr.onreadystatechange = function (){
 
     var container_PageProduit = document.querySelector('main');
     container_PageProduit.appendChild(page_Liste_produit);
+
+    URL += "?id=" + element.id;
+    
 
     document.querySelector('button').addEventListener("click", function(){
       ++ objet
