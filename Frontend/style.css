@@ -198,7 +198,42 @@ td, th {
   width: 60px;
 }
 
+.button_catalogue {
+  margin-left: 20px;
+  border: none;
+  padding: 6px 0 6px 0;
+  border-radius: 8px;
+  background: #9D62DA;
+  font: bold 13px Arial;
+  color: black;
+  -webkit-text-fill-color: none;
+}
+
+.button_catalogue:hover {
+  background: #d34836;
+}
+
 /* Formulaire */
+#paiement {
+  display: inline;
+  margin: 70px;
+  font-weight: bold;
+}
+
+#button_form {
+  border: none;
+  padding: 6px 0 6px 0;
+  border-radius: 50%;
+  background: #9D62DA;
+  font: bold 15px Arial;
+  color: #fff;
+  width: 160px;
+}
+
+#button_form:hover {
+  background: red;
+}
+
 form {
   margin: 0 auto;
   width: 400px;

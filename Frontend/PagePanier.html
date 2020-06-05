@@ -14,14 +14,14 @@
          </header>
         <main>
             <h1>Récapitulatif de la commande</h1>
-            <table class='panier_page'>
+            <table id="panier_page_tab">
                 <tr>
                     <th>Nom</th>
                     <th>Quantité</th>
                     <th>Prix en €</th>
                   </tr>
             </table>
-            <h4> Total de la commande : <p id='total_commande'></p> </h4>
+            <h4> Total de la commande : <p id='total_commande'></p> </h2>
             <h2> Validation de la commande</h2>
             <form action="/ma-page-de-traitement" method="post">
                 <div>
@@ -37,15 +37,21 @@
                     <input type="email" id="mail" name="user_mail" required>
                 </div>
                 <div>
-                    <label for="">adresse :</label>
+                    <label for="">Adresse :</label>
                     <input type="" id="adresse" name="user_adress" required>
                 </div>
                 <div>
                     <label for="">Ville :</label>
                     <input type="" id="city" name="user_city" required>
                 </div>
-                <div class="button">
-                    <button type="submit"> Validez la commande </button>
+                <div class="carte">
+                    <label for="paiement" id="paiement"> --> Choix du moyen de paiement : </label>
+                    <input type="radio" class="paiement" name="identifieur" value="Visa" checked/><i class="fab fa-cc-visa fa-2x"></i>
+                    <input type="radio" class="paiement" name="identifieur" value="Mastercard"/><i class="fab fa-cc-mastercard fa-2x"></i>
+                    <input type="radio"class="paiement" name="identifieur" value="Paypal"/><i class="fab fa-cc-paypal fa-2x"></i>
+                 </div>
+                 <div class="button">
+                    <button type="submit" id="button_form"> Validez la commande </button>
                 </div>
             </form>
         </main>

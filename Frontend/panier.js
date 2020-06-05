@@ -20,6 +20,30 @@ xhr.onreadystatechange = function (){
 
 /////////////////////Page Panier//////////////////////
 
+
+
+if(localStorage.length == 0){
+
+   var table = document.getElementById("panier_page_tab");
+   table.innerHTML = "";
+
+   var panier_vide = document.createElement("p");
+   table.appendChild(panier_vide);
+   panier_vide.innerHTML = "Votre Panier est vide pour le moment";
+   panier_vide.className = "panier_vide";
+   var Lien_button = document.createElement("a");
+   panier_vide.appendChild(Lien_button);
+   Lien_button.setAttribute("href", "index.html")
+   var button_catalogue = document.createElement("button");
+   Lien_button.appendChild(button_catalogue);
+   button_catalogue.innerHTML = "Voir le catalogue produit";
+   button_catalogue.setAttribute ("href", 'index.html');
+   button_catalogue.className=("button_catalogue");
+
+}
+
+
+
 produit.forEach(element => { 
 
     var tableau = document.querySelector('table')
