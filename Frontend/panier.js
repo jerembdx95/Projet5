@@ -65,6 +65,7 @@ produit.forEach(element => {
    commande.appendChild(totalC);
    totalC.innerHTML = y + " €";
 
+
 }}
  xhr.open("GET", "http://localhost:3000/api/teddies" , true);
  xhr.send();

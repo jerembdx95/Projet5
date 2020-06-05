@@ -1,4 +1,3 @@
-
  /* Lien API */
 
 var xhr = new XMLHttpRequest();
@@ -24,13 +23,9 @@ xhr.onreadystatechange = function (){
     let titre = document.createElement("h2");
     let prix = document.createElement("p");
     let img = document.createElement("img");
-    
     let parent = document.getElementById("liste_produit");
 
-    
-  
     parent.appendChild(container);
-    
     container.appendChild(titre);
     container.appendChild(prix);
     container.appendChild(img);
@@ -45,8 +40,8 @@ xhr.onreadystatechange = function (){
 
     container.onclick = function (){
 
-
-
+    URL += "?id=" + element.id;
+  
     var page_Liste_produit = document.querySelector('section')
     page_Liste_produit.innerHTML = '';
 
@@ -57,27 +52,32 @@ xhr.onreadystatechange = function (){
     let description_produit = document.createElement("p");
     let ajouteraupanier = document.createElement('button');
     let select_Produit = document.createElement('select');
-  
+    let selector = document.createElement('option');
+
     page_Liste_produit.appendChild(titre_produit);
     page_Liste_produit.appendChild(prix_produit);
     page_Liste_produit.appendChild(img_produit);
     page_Liste_produit.appendChild(description_produit);
     page_Liste_produit.appendChild(ajouteraupanier);
     page_Liste_produit.appendChild(select_Produit);
+    select_Produit.appendChild(selector);
   
     description_produit.className = 'description';
-  
+    
     titre_produit.innerHTML = element.name;
     prix_produit.innerHTML = element.price;
     img_produit.src = element.img;
     description_produit.innerHTML = element.description;
     ajouteraupanier.innerHTML = "ajouter au panier";
+    selector.innerHTML = "Choisir une couleur";
 
     var container_PageProduit = document.querySelector('main');
     container_PageProduit.appendChild(page_Liste_produit);
 
-    URL += "?id=" + element.id;
-    
+    /* personnalisation produit */
+
+
+    /* localStorage */
 
     document.querySelector('button').addEventListener("click", function(){
       ++ objet
