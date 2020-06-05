@@ -20,8 +20,6 @@ xhr.onreadystatechange = function (){
 
 /////////////////////Page Panier//////////////////////
 
-
-
 if(localStorage.length == 0){
 
    var table = document.getElementById("panier_page_tab");
@@ -41,8 +39,6 @@ if(localStorage.length == 0){
    button_catalogue.className=("button_catalogue");
 
 }
-
-
 
 produit.forEach(element => { 
 
