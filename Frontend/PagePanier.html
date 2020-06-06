@@ -23,7 +23,7 @@
             </table>
             <h4> Total de la commande : <p id='total_commande'></p> </h2>
             <h2> Validation de la commande</h2>
-            <form action="/ma-page-de-traitement" method="post">
+            <form  method="POST" name="Contact_Form" id="Form">
                 <div>
                     <label for="name">Nom :</label>
                     <input type="text" id="name" name="user_name" required>
@@ -51,7 +51,7 @@
                     <input type="radio"class="paiement" name="identifieur" value="Paypal"/><i class="fab fa-cc-paypal fa-2x"></i>
                  </div>
                  <div class="button">
-                    <button type="submit" id="button_form"> Validez la commande </button>
+                    <button   type="submit" id="button_form"> Validez la commande </button>
                 </div>
             </form>
         </main>

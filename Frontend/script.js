@@ -31,7 +31,7 @@ xhr.onreadystatechange = function (){
     container.appendChild(img);
 
     titre.innerHTML = element.name;
-    prix.innerHTML = element.price;
+    prix.innerHTML = element.price / 100 + " €";
     img.src = element.img;
 
     var objet = 0;
@@ -40,8 +40,8 @@ xhr.onreadystatechange = function (){
 
     container.onclick = function (){
 
-      var stateObj = { foo: "index.html" };
-      history.pushState(stateObj, "index.html", "index.html?id=" + element.id);
+    var stateObj = { foo: "index.html" };
+    history.pushState(stateObj, "index.html", "index.html?id=" + element.id);
   
     var page_Liste_produit = document.querySelector('section')
     page_Liste_produit.innerHTML = '';
@@ -54,6 +54,8 @@ xhr.onreadystatechange = function (){
     let ajouteraupanier = document.createElement('button');
     let select_Produit = document.createElement('select');
     let selector = document.createElement('option');
+    let select_Quantity = document.createElement('select');
+    let selector_Quantity = document.createElement('option');
 
     page_Liste_produit.appendChild(titre_produit);
     page_Liste_produit.appendChild(prix_produit);
@@ -62,34 +64,37 @@ xhr.onreadystatechange = function (){
     page_Liste_produit.appendChild(ajouteraupanier);
     page_Liste_produit.appendChild(select_Produit);
     select_Produit.appendChild(selector);
-  
+    
     description_produit.className = 'description';
     
     titre_produit.innerHTML = element.name;
-    prix_produit.innerHTML = element.price;
+    prix_produit.innerHTML = element.price / 100 + " €";
     img_produit.src = element.img;
     description_produit.innerHTML = element.description;
     ajouteraupanier.innerHTML = "ajouter au panier";
     selector.innerHTML = "Choisir une couleur";
 
+    selector.className = "couleurs";
+
     var container_PageProduit = document.querySelector('main');
     container_PageProduit.appendChild(page_Liste_produit);
 
     /* personnalisation produit */
-
+   
+   var colors_variation = document.createElement('option');
+   selector.appendChild(colors_variation);
+   colors_variation.innerHTML = element.colors;
 
     /* localStorage */
 
     document.querySelector('button').addEventListener("click", function(){
       ++ objet
     localStorage.setItem (element.id , objet);
-
+    alert("Le produit à été ajouté à votre panier")
     });
-    document.querySelector('button').addEventListener("click", function(){
-      alert('Le Produit à été ajouté au panier ! ');
-      location.reload();
-    });}});}};
-
+  }
+    })}}
+   
 xhr.open("GET", "http://localhost:3000/api/teddies", true);
 xhr.send();
 

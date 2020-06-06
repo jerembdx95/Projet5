@@ -37,7 +37,6 @@ if(localStorage.length == 0){
    button_catalogue.innerHTML = "Voir le catalogue produit";
    button_catalogue.setAttribute ("href", 'index.html');
    button_catalogue.className=("button_catalogue");
-
 }
 
 produit.forEach(element => { 
@@ -61,7 +60,7 @@ produit.forEach(element => {
     produit_panier.innerHTML = element.name;
     quantité_P1.innerHTML = localStorage.getItem(element.id);
     prix = localStorage.getItem(element.id) * parseInt(element.price);
-    prix_P1.innerHTML = prix;
+    prix_P1.innerHTML = prix / 100;
 
    panier = {id: element.id, price: localStorage.getItem(element.id) * parseInt(element.price) };
    totalpanier.push(panier);
@@ -76,20 +75,34 @@ produit.forEach(element => {
 
   /* total commande */
   for (i=0; i<totalpanier.length; i++){
-     var x = totalpanier[i].price;
+     var x = totalpanier[i].price ;
       y += x;}
   
    var commande = document.getElementById("total_commande")
    var totalC = document.createElement ('p')
    totalC.className = "total";
    commande.appendChild(totalC);
-   totalC.innerHTML = y + " €";
-
-
+   totalC.innerHTML = y/100 + " €";
 }}
  xhr.open("GET", "http://localhost:3000/api/teddies" , true);
  xhr.send();
 
+ /* formulaire */
+
+ let nom = document.getElementById("name").value;
+ let prenom = document.getElementById("surname").value;
+ let email = document.getElementById("mail").value;
+ let adresse = document.getElementById("adresse").value;
+ let ville = document.getElementById("city").value;
+
+ contact = {
+  lastName: nom,
+  firstName: prenom,
+  email: email,
+  address: adresse,
+  city: ville,
+   };
+
+  
 
 
- 
