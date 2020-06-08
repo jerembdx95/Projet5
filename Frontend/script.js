@@ -103,6 +103,6 @@ xhr.send();
   let indice = document.getElementById('cart');
   let indice_widget = document.createElement('p');
   indice.appendChild(indice_widget);
-  indice_widget.innerHTML = localStorage.length;
+  indice_widget.innerHTML = localStorage.length ;
   indice_widget.className = 'indicePanier';
 

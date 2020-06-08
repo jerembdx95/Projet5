@@ -83,26 +83,107 @@ produit.forEach(element => {
    totalC.className = "total";
    commande.appendChild(totalC);
    totalC.innerHTML = y/100 + " €";
+
 }}
  xhr.open("GET", "http://localhost:3000/api/teddies" , true);
  xhr.send();
 
  /* formulaire */
 
- let nom = document.getElementById("name").value;
- let prenom = document.getElementById("surname").value;
- let email = document.getElementById("mail").value;
- let adresse = document.getElementById("adresse").value;
- let ville = document.getElementById("city").value;
+/* création contact */
 
- contact = {
-  lastName: nom,
-  firstName: prenom,
-  email: email,
-  address: adresse,
-  city: ville,
-   };
 
+checkInput = () => {
+   //Controle Regex
+   let checkNumber = /[0-9]/;
+   let checkMail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+   let checkSpecialCharacter = /[§!@#$%^&*().?":{}|<>]/;
+ 
+   //message fin de controle
+   let checkMessage = "";
+ 
+   //Récupération des inputs
+ 
+   let nom = document.getElementById("nom").value;
+   let prenom = document.getElementById("prenom").value;
+   let email = document.getElementById("email").value;
+   let adresse = document.getElementById("adresse").value;
+   let ville = document.getElementById("ville").value;
+ 
+   /* Test Nom */
+
+   if (
+     checkNumber.test(nom) == true ||
+     checkSpecialCharacter.test(nom) == true ||
+     nom == ""
+   ) {
+     checkMessage = "Veuillez vérifier ou renseigner votre nom";
+   } else {
+     console.log("Nom accepté");
+   }
+   
+   /* Test Prenom */
+
+   if (
+     checkNumber.test(prenom) == true ||
+     checkSpecialCharacter.test(prenom) == true ||
+     prenom == ""
+   ) {
+     checkMessage = checkMessage + "\n" + "Vérifier/renseigner votre prénom";
+   } else {
+     console.log("Prénom accepté");
+   }
+   /* Test Mail */
+
+   if (checkMail.test(email) == false) {
+     checkMessage = checkMessage + "\n" + "Vérifier/renseigner votre email";
+   } else {
+     console.log("Adresse mail acceptée");
+   }
+   /* Test adresse */
+
+   if (checkSpecialCharacter.test(adresse) == true || adresse == "") {
+     checkMessage = checkMessage + "\n" + "Vérifier/renseigner votre adresse";
+   } else {
+     console.log(" Adresse postale acceptée");
+   }
+   /* Test ville */
+   if (
+     (checkSpecialCharacter.test(ville) == true &&
+       checkNumber.test(ville) == true) ||
+     ville == ""
+   ) {
+     checkMessage = checkMessage + "\n" + "Vérifier/renseigner votre ville";
+   } else {
+     console.log("Ville acceptée");
+   }
   
+   if (checkMessage != "") {
+     alert("Il est nécessaire de :" + "\n" + checkMessage);
+   }
+  
+   else {
+     contact = {
+       lastName: nom,
+       firstName: prenom,
+       address: adresse,
+       city: ville,
+       email: email,
+     };
+     return contact;
+   }
+ };
 
-
+ //Vérification du panier
+checkPanier = () => {
+   //Vérifier qu'il y ai au moins un produit dans le panier
+   let etatPanier = JSON.parse(localStorage.length);
+   //Si le panier est vide ou null (suppression localStorage par)=>alerte
+   if (etatPanier.length < 1) {
+     alert("Votre panier est vide");
+     return false;
+   } else {
+     console.log("Le panier n'est pas vide");
+     return true;
+   }
+ };
