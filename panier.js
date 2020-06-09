@@ -196,7 +196,7 @@ if (contact == true && etatPanier == true){
 
 var xhr = new XMLHttpRequest();
 
-xhr.open("post", "http://localhost:3000/api/teddies/order", true);
+xhr.open("get", "http://localhost:3000/api/teddies/order", true);
 xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 xhr.send(contact);
 console.log("Bien envoyé")
