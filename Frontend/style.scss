@@ -220,11 +220,6 @@ table {
     
   }
   
-
-
-
-
-
   form {
     margin: 0 auto;
     width: 400px;
@@ -264,5 +259,13 @@ table {
     margin-left: .5em;
   }
 
-  /*page panier */
+  /*page Validation */
 
+.Tableau_final{
+
+    display: flex;
+    margin-left: 15px;
+    div{
+        margin-left: 4px;
+    }
+  }

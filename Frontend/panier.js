@@ -8,6 +8,7 @@ var prix ;
 var Panier;
 var totalpanier = [];
 var y = 0;
+let products = [];
 
 xhr.onreadystatechange = function (){
   if (this.readyState == 4 && this.status == 200){
@@ -64,6 +65,9 @@ produit.forEach(element => {
 
    panier = {id: element.id, price: localStorage.getItem(element.id) * parseInt(element.price) };
    totalpanier.push(panier);
+   article = {id: element.id};
+   products.push(article)
+
    
   /* supprimer element panier */
 
@@ -71,7 +75,10 @@ produit.forEach(element => {
    supprimer.onclick = function (){
    localStorage.removeItem(element.id);
    location.reload();   
+
+
    };;}})
+
 
   /* total commande */
   for (i=0; i<totalpanier.length; i++){
@@ -83,36 +90,47 @@ produit.forEach(element => {
    totalC.className = "total";
    commande.appendChild(totalC);
    totalC.innerHTML = y/100 + " €";
+   sessionStorage.setItem("prixTotal" , y);
 
 }}
  xhr.open("GET", "http://localhost:3000/api/teddies" , true);
  xhr.send();
 
- 
 /* formulaire */
+
+
+let submit = document.getElementById("button_form");
+
+  submit.addEventListener("click", function(e){
+   e.preventDefault();
 
   let nom = document.getElementById("nom").value;
   let prenom = document.getElementById("prenom").value;
   let email = document.getElementById("email").value;
   let adresse = document.getElementById("adresse").value;
   let ville = document.getElementById("ville").value;
-  let submit = document.getElementById("button_form");
+  
+   let contact = {
+       lastName: nom,
+       firstName: prenom,
+       address: adresse,
+       city: ville,
+       email: email,
+      };
+    console.log(contact);
 
-  submit.addEventListener("click", function(){
-
-   contact = {
-      lastName: nom,
-      firstName: prenom,
-      address: adresse,
-      city: ville,
-      email: email,
-    };
     var xhr = new XMLHttpRequest();
 
     xhr.open("post", "http://localhost:3000/api/teddies/order", true);
-    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    xhr.send(contact);
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.send(JSON.stringify({
+       products: products, 
+       contact: contact,
+    }
+    
+    ));
     console.log("Bien envoyé")
+    window.location = './PageValidation.html'
   })
 
 

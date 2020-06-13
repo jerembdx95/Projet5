@@ -274,5 +274,15 @@ textarea {
   margin-left: .5em;
 }
 
-/*page panier */
+/*page Validation */
+.Tableau_final {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-left: 15px;
+}
+
+.Tableau_final div {
+  margin-left: 4px;
+}
 /*# sourceMappingURL=style.css.map */
