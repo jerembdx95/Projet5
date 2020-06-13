@@ -56,7 +56,6 @@ main{
         -moz-animation: .1s ease-in-out;
         -o-animation: .1s ease-in-out;
         transition: .1s ease-in-out; 
-    
 
         &:hover {
         -webkit-transform: scale(1.1);
@@ -84,7 +83,6 @@ main{
     }
 }
 
-
 footer{
     width: 100%;
     display: flex;
@@ -95,9 +93,12 @@ footer{
         margin-top: 20px;
         font-weight: bold;
         font-size: 20px;
+    
     }
 }
-
+#Copyright{
+    font-weight: bold;
+}
 /* Page Produit */ 
 
 article{
@@ -208,7 +209,6 @@ table {
    
       border:none;
       padding:6px 0 6px 0;
-      border-radius:50%;
       background:#9D62DA;
       font:bold 15px Arial;
       color:#fff;
@@ -269,3 +269,43 @@ table {
         margin-left: 4px;
     }
   }
+
+
+  /* Responsive */
+
+  @media screen and (max-width: 900px) {
+    #Copyright {
+      visibility: hidden;
+    }
+  }
+
+  @media screen and (max-width: 460px) {
+   main{
+       h1{
+           font-size: 30px;
+       }
+       section{
+           div{
+               width: 230px;
+               margin-left: 0;
+           }
+        img{
+            width: 230px;
+        }
+       }
+   }
+form{
+    width: 250px;
+    input{
+        width: 250px;
+    }
+    #paiement{
+        margin: 0;
+    }
+    button{
+        text-align: center;
+    }
+   }
+   
+}
+   

@@ -114,6 +114,10 @@ footer a {
   font-size: 20px;
 }
 
+#Copyright {
+  font-weight: bold;
+}
+
 /* Page Produit */
 article {
   width: 60%;
@@ -223,7 +227,6 @@ td, th {
 #button_form {
   border: none;
   padding: 6px 0 6px 0;
-  border-radius: 50%;
   background: #9D62DA;
   font: bold 15px Arial;
   color: #fff;
@@ -284,5 +287,37 @@ textarea {
 
 .Tableau_final div {
   margin-left: 4px;
+}
+
+/* Responsive */
+@media screen and (max-width: 900px) {
+  #Copyright {
+    visibility: hidden;
+  }
+}
+
+@media screen and (max-width: 460px) {
+  main h1 {
+    font-size: 30px;
+  }
+  main section div {
+    width: 230px;
+    margin-left: 0;
+  }
+  main section img {
+    width: 230px;
+  }
+  form {
+    width: 250px;
+  }
+  form input {
+    width: 250px;
+  }
+  form #paiement {
+    margin: 0;
+  }
+  form button {
+    text-align: center;
+  }
 }
 /*# sourceMappingURL=style.css.map */

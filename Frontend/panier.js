@@ -1,4 +1,4 @@
-/* Lien API */
+/* Déclaration variable */
 
 var xhr = new XMLHttpRequest();
 var ours ;
@@ -9,6 +9,8 @@ var Panier;
 var totalpanier = [];
 var y = 0;
 let products = [];
+
+/* Lien API */
 
 xhr.onreadystatechange = function (){
   if (this.readyState == 4 && this.status == 200){
@@ -63,12 +65,13 @@ produit.forEach(element => {
     prix = localStorage.getItem(element.id) * parseInt(element.price);
     prix_P1.innerHTML = prix / 100;
 
+/* Panier et tableau produit */ 
+
    panier = {id: element.id, price: localStorage.getItem(element.id) * parseInt(element.price) };
    totalpanier.push(panier);
    article = {id: element.id};
    products.push(article)
 
-   
   /* supprimer element panier */
 
    supprimer.innerHTML = 'supprimer'; 
@@ -76,11 +79,10 @@ produit.forEach(element => {
    localStorage.removeItem(element.id);
    location.reload();   
 
-
    };;}})
 
-
   /* total commande */
+  
   for (i=0; i<totalpanier.length; i++){
      var x = totalpanier[i].price ;
       y += x;}
@@ -90,6 +92,7 @@ produit.forEach(element => {
    totalC.className = "total";
    commande.appendChild(totalC);
    totalC.innerHTML = y/100 + " €";
+
    sessionStorage.setItem("prixTotal" , y);
 
 }}
@@ -97,7 +100,6 @@ produit.forEach(element => {
  xhr.send();
 
 /* formulaire */
-
 
 let submit = document.getElementById("button_form");
 

@@ -1,11 +1,14 @@
- /* Lien API */
+ /* déclaration variable */
 
 var xhr = new XMLHttpRequest();
 var ours ;
 var data;
 var produit = [];
+var colors_produit = [];
 var panier;
 var URL = document.location.href;
+
+/* Lien API */
 
 xhr.onreadystatechange = function (){
   if (this.readyState == 4 && this.status == 200){  
@@ -14,7 +17,11 @@ xhr.onreadystatechange = function (){
      for (i=0 ; i < data.length ; i++){
       ours = {name: data[i].name , id: data[i]._id , description: data[i].description , img: data[i].imageUrl , price: data[i].price, colors: data[i].colors };
       produit.push(ours); 
+      colors_produit.push(ours.colors);
+      
    };
+   console.log(colors_produit);
+
    /* page principale */
 
    produit.forEach(element => {
@@ -80,11 +87,15 @@ xhr.onreadystatechange = function (){
     container_PageProduit.appendChild(page_Liste_produit);
 
     /* personnalisation produit */
-   
-   var colors_variation = document.createElement('option');
-   selector.appendChild(colors_variation);
-   colors_variation.innerHTML = element.colors;
 
+    colors_produit.forEach(array => {
+      var colors_variation = document.createElement('option');
+      selector.appendChild(colors_variation);
+      colors_variation.innerHTML = '';
+    
+    })
+   
+   
     /* localStorage */
 
     document.querySelector('button').addEventListener("click", function(){
