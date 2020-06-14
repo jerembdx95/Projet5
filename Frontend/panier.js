@@ -132,7 +132,7 @@ let submit = document.getElementById("button_form");
     
     ));
     console.log("Bien envoyé")
-    window.location = './PageValidation.html'
+    window.location = './PageValidation.html' 
   })
 
 
