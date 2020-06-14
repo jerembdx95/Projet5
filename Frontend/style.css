@@ -1,3 +1,4 @@
+@charset "UTF-8";
 body {
   background-color: #F3EAF1;
 }
@@ -238,11 +239,17 @@ td, th {
 }
 
 form {
-  margin: 0 auto;
   width: 400px;
   padding: 1em;
   border: 1px solid #CCC;
   border-radius: 1em;
+  display: block;
+  margin: auto;
+}
+
+form button {
+  display: block;
+  margin: auto;
 }
 
 form div + div {
@@ -272,11 +279,6 @@ textarea {
   height: 5em;
 }
 
-.button {
-  padding-left: 90px;
-  margin-left: .5em;
-}
-
 /*page Validation */
 .Tableau_final {
   display: -webkit-box;
@@ -287,6 +289,16 @@ textarea {
 
 .Tableau_final div {
   margin-left: 4px;
+}
+
+/* Mention Légale */
+#Legal {
+  padding: 50px;
+}
+
+#Legal h5 {
+  text-decoration: underline;
+  font-size: 20px;
 }
 
 /* Responsive */
@@ -315,9 +327,6 @@ textarea {
   }
   form #paiement {
     margin: 0;
-  }
-  form button {
-    text-align: center;
   }
 }
 /*# sourceMappingURL=style.css.map */
