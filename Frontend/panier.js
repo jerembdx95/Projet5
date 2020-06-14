@@ -78,7 +78,6 @@ produit.forEach(element => {
    supprimer.onclick = function (){
    localStorage.removeItem(element.id);
    location.reload();   
-
    };;}})
 
   /* total commande */
@@ -132,7 +131,7 @@ let submit = document.getElementById("button_form");
     
     ));
     console.log("Bien envoyé")
-    window.location = './PageValidation.html' 
+    window.location = './PageValidation.html'  
   })
 
 

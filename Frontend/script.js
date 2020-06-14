@@ -19,9 +19,7 @@ xhr.onreadystatechange = function (){
       ours = {name: data[i].name , id: data[i]._id , description: data[i].description , img: data[i].imageUrl , price: data[i].price, colors: data[i].colors };
       produit.push(ours); 
       colors_produit.push(ours.colors);
-      
    };
-   console.log(colors_produit);
 
    /* page principale */
 
@@ -93,10 +91,8 @@ xhr.onreadystatechange = function (){
       var colors_variation = document.createElement('option');
       selector.appendChild(colors_variation);
       colors_variation.innerHTML = '';
-    
     })
-   
-   
+  
     /* localStorage */
 
     document.querySelector('button').addEventListener("click", function(){
