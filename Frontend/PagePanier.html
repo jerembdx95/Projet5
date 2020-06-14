@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8"/>
         <link rel="stylesheet" href="style.css">
+        <title>Page Panier</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="Oriteddy, le spécialiste des ours en peluche !">
         <script src="https://kit.fontawesome.com/a50fc9eb0d.js" crossorigin="anonymous"></script>
@@ -21,7 +22,8 @@
                     <th>Prix en €</th>
                   </tr>
             </table>
-            <h4> Total de la commande : <p id='total_commande'></p> </h2>
+            <h4> Total de la commande : </h4>
+            <p id='total_commande'></p>
             <h2> Validation de la commande</h2>
             <form  method="POST" name="form_contact" id="Form" action='./PageValidation.html'>
                 <div>
@@ -45,10 +47,10 @@
                     <input type="text" id="ville" name="ville" placeholder="Renseignez votre Ville" required>
                 </div>
                 <div class="carte">
-                    <label for="paiement" id="paiement"> --> Choix du moyen de paiement : </label>
+                    <label  id="paiement"> --> Choix du moyen de paiement : </label>
                     <input type="radio" class="paiement" name="identifieur" value="Visa" checked/><i class="fab fa-cc-visa fa-2x"></i>
                     <input type="radio" class="paiement" name="identifieur" value="Mastercard"/><i class="fab fa-cc-mastercard fa-2x"></i>
-                    <input type="radio"class="paiement" name="identifieur" value="Paypal"/><i class="fab fa-cc-paypal fa-2x"></i>
+                    <input type="radio" class="paiement" name="identifieur" value="Paypal"/><i class="fab fa-cc-paypal fa-2x"></i>
                  </div>
                  <div class="button">
                  <button type="submit" id="button_form" name="commander"> Validez la commande </button> 
@@ -58,8 +60,8 @@
         <footer>
                 <a  href="mention_legale.html"> Mentions Legales </a>
                 <p id='Copyright'>Copyright © 2020 Orinounours by Orinoco - Tous droits réservés</p>
-                <a id='Nous Contacter'  href="mailto:nullepart@gmail.com">Contactez-nous</a>
+                <a id='NousContacter'  href="mailto:nullepart@gmail.com">Contactez-nous</a>
         </footer>
+        <script src="panier.js"> </script>
     </body>
-    <script src="panier.js"> </script>
 </html>
