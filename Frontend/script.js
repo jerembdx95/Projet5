@@ -4,7 +4,6 @@ var xhr = new XMLHttpRequest();
 var ours ;
 var data;
 var produit = [];
-var colors_produit = [];
 var panier;
 var URL = document.location.href;
 
@@ -18,11 +17,8 @@ xhr.onreadystatechange = function (){
      for (i=0 ; i < data.length ; i++){
       ours = {name: data[i].name , id: data[i]._id , description: data[i].description , img: data[i].imageUrl , price: data[i].price, colors: data[i].colors };
       produit.push(ours); 
-      colors_produit.push(ours.colors);
-      
    };
-   console.log(colors_produit);
-
+  
    /* page principale */
 
    produit.forEach(element => {
@@ -62,9 +58,7 @@ xhr.onreadystatechange = function (){
     let ajouteraupanier = document.createElement('button');
     let select_Produit = document.createElement('select');
     let selector = document.createElement('option');
-    let select_Quantity = document.createElement('select');
-    let selector_Quantity = document.createElement('option');
-
+   
     page_Liste_produit.appendChild(titre_produit);
     page_Liste_produit.appendChild(prix_produit);
     page_Liste_produit.appendChild(img_produit);
@@ -82,6 +76,7 @@ xhr.onreadystatechange = function (){
     ajouteraupanier.innerHTML = "ajouter au panier";
     selector.innerHTML = "Choisir une couleur";
 
+
     selector.className = "couleurs";
 
     var container_PageProduit = document.querySelector('main');
@@ -89,14 +84,13 @@ xhr.onreadystatechange = function (){
 
     /* personnalisation produit */
 
-    colors_produit.forEach(array => {
-      var colors_variation = document.createElement('option');
-      selector.appendChild(colors_variation);
-      colors_variation.innerHTML = '';
-    
-    })
-   
-   
+  element.colors.forEach(colors => { 
+
+  let couleur = document.createElement ('option');
+  select_Produit.appendChild(couleur);
+  couleur.innerHTML = colors;
+});
+
     /* localStorage */
 
     document.querySelector('button').addEventListener("click", function(){
