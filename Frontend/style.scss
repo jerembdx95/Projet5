@@ -237,6 +237,10 @@ table {
     vertical-align: top;
     height: 5em;
   }
+
+  input{
+      width: 200px;
+  }
   
   /*page Validation */
 
@@ -268,6 +272,7 @@ table {
 
   @media screen and (max-width: 460px){
    main{
+       
        h1{
            font-size: 30px;
        }
@@ -283,13 +288,21 @@ table {
    }
 form{
     width: 250px;
-
-    input{
-        width: 250px;
-    }
+  
     #paiement{
         margin: 0;
     }
    }
+input{
+    width: 200px;
+}
+.Tableau_final{
+    flex-wrap: wrap;
+    margin-bottom: 250px;
+}
+
+
+
+
 }
    

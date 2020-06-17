@@ -279,6 +279,10 @@ textarea {
   height: 5em;
 }
 
+input {
+  width: 200px;
+}
+
 /*page Validation */
 .Tableau_final {
   display: -webkit-box;
@@ -322,11 +326,16 @@ textarea {
   form {
     width: 250px;
   }
-  form input {
-    width: 250px;
-  }
   form #paiement {
     margin: 0;
+  }
+  input {
+    width: 200px;
+  }
+  .Tableau_final {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    margin-bottom: 250px;
   }
 }
 /*# sourceMappingURL=style.css.map */
