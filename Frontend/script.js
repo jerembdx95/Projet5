@@ -9,19 +9,27 @@ var URL = document.location.href;
 
 /* Lien API */
 
-xhr.onreadystatechange = function (){
-  
-  if (this.readyState == 4 && this.status == 200){  
-     data = JSON.parse(this.response);
+getAllTeddies = () => {
+  return new Promise((resolve) => {
+    let request = new XMLHttpRequest();
+    request.onreadystatechange = function () {
+      .then(
+      data = JSON.parse(this.response);
      
      for (i=0 ; i < data.length ; i++){
       ours = {name: data[i].name , id: data[i]._id , description: data[i].description , img: data[i].imageUrl , price: data[i].price, colors: data[i].colors };
-      produit.push(ours); 
-   };
-  
-   /* page principale */
+      produit.push(ours); ;
+    request.open("GET", "http://localhost:3000/api/teddies/" + idNounours);
+    request.send(
+      });
+};
 
-   produit.forEach(element => {
+async function teddies() {
+  const teddies = await getAllTeddies();
+
+  
+
+   teddies.forEach(teddy => {
 
     let container = document.createElement("div");
     let titre = document.createElement("h2");
@@ -40,7 +48,9 @@ xhr.onreadystatechange = function (){
 
     var objet = 0;
 
-/* page produit */
+   })};
+
+   /*
 
     container.onclick = function (){
 
@@ -82,7 +92,7 @@ xhr.onreadystatechange = function (){
     var container_PageProduit = document.querySelector('main');
     container_PageProduit.appendChild(page_Liste_produit);
 
-    /* personnalisation produit */
+  
 
   element.colors.forEach(colors => { 
 
@@ -91,7 +101,7 @@ xhr.onreadystatechange = function (){
   couleur.innerHTML = colors;
 });
 
-    /* localStorage */
+    
 
     document.querySelector('button').addEventListener("click", function(){
       ++ objet
@@ -104,7 +114,7 @@ xhr.onreadystatechange = function (){
 xhr.open("GET", "http://localhost:3000/api/teddies", true);
 xhr.send();
 
-/* widget panier */
+
 
   let indice = document.getElementById('cart');
   let indice_widget = document.createElement('p');
@@ -112,3 +122,4 @@ xhr.send();
   indice_widget.innerHTML = localStorage.length ;
   indice_widget.className = 'indicePanier';
 
+*/
