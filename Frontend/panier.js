@@ -122,7 +122,6 @@ let submit = document.getElementById("button_form");
     console.log(contact);
 
     var xhr = new XMLHttpRequest();
-
     xhr.open("post", "http://localhost:3000/api/teddies/order", true);
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send(JSON.stringify({
@@ -131,9 +130,7 @@ let submit = document.getElementById("button_form");
     }
     
     ));
-    console.log("Bien envoyé")
     window.location = "./PageValidation.html";
-    
   })
 
 

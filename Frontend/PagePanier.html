@@ -25,29 +25,29 @@
             <h4> Total de la commande : </h4>
             <p id='total_commande'></p>
             <h2> Validation de la commande</h2>
-            <form  method="POST" name="form_contact" id="Form" action='./PageValidation.html'>
+            <form  method="POST" name="form_contact" id="Form" >
                 <div>
                     <label for="nom">Nom :</label>
-                    <input type="text" id="nom" name="nom" placeholder="Renseignez votre Nom" required>
+                    <input type="text" id="nom" name="nom" placeholder="Renseignez votre Nom" required="required" data-message="Veuillez renseigner votre Nom" pattern="[A-Z]" >
                 </div>
                 <div>
-                    <label for="nom">Prénom :</label>
-                    <input type="text" id="prenom" name="prenom" placeholder="Renseignez votre Prénom" required>
+                    <label for="prenom">Prénom :</label>
+                    <input type="text" id="prenom" name="prenom" placeholder="Renseignez votre Prénom" required="required" data-message="Veuillez renseigner votre Prénom" pattern="[A-Z]" >
                 </div>
                 <div>
                     <label for="email">e-mail :</label>
-                    <input type="email" id="email" name="email" placeholder="Renseignez votre Email" required>
+                    <input type="email" id="email" name="email" placeholder="Renseignez votre Email" >
                 </div>
                 <div>
                     <label for="adresse">Adresse :</label>
-                    <input type="text" id="adresse" name="adresse" placeholder="Renseignez votre Adresse" required>
+                    <input type="text" id="adresse" name="adresse" placeholder="Renseignez votre Adresse" required="required" data-message="Veuillez renseigner votre Adresse" pattern="[A-Z][0-9]" >
                 </div>
                 <div>
-                    <label for="ville">Ville :</label>
-                    <input type="text" id="ville" name="ville" placeholder="Renseignez votre Ville" required>
+                    <label for="ville">Ville :</label> 
+                    <input type="text" id="ville" name="ville" placeholder="Renseignez votre Ville" required="required" data-message="Veuillez renseigner votre Ville" pattern="[A-Z] >
                 </div>
                 <div class="carte">
-                    <label  id="paiement"> --> Choix du moyen de paiement : </label>
+                    <label  id="paiement">  Choix du moyen de paiement : </label>
                     <input type="radio" class="paiement" name="identifieur" value="Visa" checked/><i class="fab fa-cc-visa fa-2x"></i>
                     <input type="radio" class="paiement" name="identifieur" value="Mastercard"/><i class="fab fa-cc-mastercard fa-2x"></i>
                     <input type="radio" class="paiement" name="identifieur" value="Paypal"/><i class="fab fa-cc-paypal fa-2x"></i>
