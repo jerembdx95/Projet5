@@ -12,6 +12,7 @@ var prix ;
 var Panier;
 var totalpanier = [];
 var y = 0;
+let contact = [];
 
  ////////////* Connexion API */////////////////////
 
@@ -203,26 +204,28 @@ async function teddies(){
 
  ////////////* Formulaire */////////////////////
 
-function addForm(){ 
- let submit = document.getElementById("button_form");
-
+function sendForm(){ 
+ 
+  let submit = document.getElementById("button_form");
+  
   submit.addEventListener("click", function(e){
+   
    e.preventDefault();
 
-  let nom = document.getElementById("nom").value;
-  let prenom = document.getElementById("prenom").value;
-  let email = document.getElementById("email").value;
-  let adresse = document.getElementById("adresse").value;
-  let ville = document.getElementById("ville").value;
-  
-   let contact = {
-       lastName: nom,
-       firstName: prenom,
-       address: adresse,
-       city: ville,
-       email: email,
-      };
-    
+    let nom = document.getElementById("nom").value;
+    let prenom = document.getElementById("prenom").value;
+    let email = document.getElementById("email").value;
+    let adresse = document.getElementById("adresse").value;
+    let ville = document.getElementById("ville").value;
+
+    contact = {
+      lastName: nom,
+      firstName: prenom,
+      address: adresse,
+      city: ville,
+      email: email,
+    };
+
     let myOrder =  { contact, products }
     console.log(myOrder);
 
@@ -238,7 +241,9 @@ function addForm(){
                     
                 })
                 .catch(function(error) {
-                    console.error("Erreur au niveau des données dans la requête order", error);
+                    console.error("Erreur", error);
                 })  
-                window.location.href = "PageValidation.html";
-  })};
+               window.location.href = "PageValidation.html"; 
+               } ) }
+
+ 
