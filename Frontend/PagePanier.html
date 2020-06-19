@@ -28,11 +28,11 @@
             <form  method="POST" name="form_contact" id="Form" >
                 <div>
                     <label for="nom">Nom :</label>
-                    <input type="text" id="nom" name="nom" placeholder="Renseignez votre Nom" required="required" data-message="Veuillez renseigner votre Nom" pattern="[A-Z]" >
+                    <input type="text" id="nom" name="nom" placeholder="Renseignez votre Nom" required="required"  >
                 </div>
                 <div>
                     <label for="prenom">Prénom :</label>
-                    <input type="text" id="prenom" name="prenom" placeholder="Renseignez votre Prénom" required="required" data-message="Veuillez renseigner votre Prénom" pattern="[A-Z]" >
+                    <input type="text" id="prenom" name="prenom" placeholder="Renseignez votre Prénom" required="required"  >
                 </div>
                 <div>
                     <label for="email">e-mail :</label>
@@ -40,11 +40,11 @@
                 </div>
                 <div>
                     <label for="adresse">Adresse :</label>
-                    <input type="text" id="adresse" name="adresse" placeholder="Renseignez votre Adresse" required="required" data-message="Veuillez renseigner votre Adresse" pattern="[A-Z][0-9]" >
+                    <input type="text" id="adresse" name="adresse" placeholder="Renseignez votre Adresse" required="required"  >
                 </div>
                 <div>
                     <label for="ville">Ville :</label> 
-                    <input type="text" id="ville" name="ville" placeholder="Renseignez votre Ville" required="required" data-message="Veuillez renseigner votre Ville" pattern="[A-Z] >
+                    <input type="text" id="ville" name="ville" placeholder="Renseignez votre Ville" required="required">
                 </div>
                 <div class="carte">
                     <label  id="paiement">  Choix du moyen de paiement : </label>
@@ -62,6 +62,8 @@
                 <p id='Copyright'>Copyright © 2020 Orinounours by Orinoco - Tous droits réservés</p>
                 <a id='NousContacter'  href="mailto:nullepart@gmail.com">Contactez-nous</a>
         </footer>
-        <script src="panier.js"> </script>
+        <script src="script.js"> </script>
+        <script> Page_Panier()</script>
+        <script> addForm()</script>
     </body>
 </html>
