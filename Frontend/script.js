@@ -57,8 +57,8 @@ async function teddies(){
 
       container.onclick = function (){
 
-      
 
+        window.location.href = "produit.html?id=" + element.id;
       
         var page_Liste_produit = document.querySelector('section')
         page_Liste_produit.innerHTML = '';
