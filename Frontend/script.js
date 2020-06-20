@@ -10,7 +10,7 @@ var URL = document.location.href;
 let x;
 var prix ;
 var Panier;
-var totalpanier = [];
+var totalPanier = [];
 var y = 0;
 let contact = [];
 
@@ -24,7 +24,12 @@ const getAllTeddies = async () => {
 async function teddies(){
   const teddies = await getAllTeddies();
   for (i=0 ; i < data.length ; i++){
-    ours = {name: data[i].name , id: data[i]._id , description: data[i].description , img: data[i].imageUrl , price: data[i].price, colors: data[i].colors };
+    ours = {name: data[i].name, 
+           id: data[i]._id, 
+           description: data[i].description, 
+           img: data[i].imageUrl, 
+           price: data[i].price, 
+           colors: data[i].colors };
     produit.push(ours); }
     
 ////////* Page Produit Principale */
@@ -122,7 +127,13 @@ async function teddies(){
   async function Page_Panier(){
     const teddies = await getAllTeddies();
     for (i=0 ; i < data.length ; i++){
-      ours = {name: data[i].name , id: data[i]._id , description: data[i].description , img: data[i].imageUrl , price: data[i].price, colors: data[i].colors };
+      ours = {name: data[i].name, 
+              id: data[i]._id, 
+              description: data[i].description, 
+              img: data[i].imageUrl,
+              price: data[i].price, 
+              colors: data[i].colors };
+
       produit.push(ours); }
     
 ////////////* Erreur Panier Vide . */////////////////////
