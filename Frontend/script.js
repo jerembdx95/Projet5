@@ -1,10 +1,11 @@
-///* Déclaration Variables *//////
+///* Déclaration letiables *//////
 
 let xhr = new XMLHttpRequest();
 let ours ;
 let data;
 let produit = [];
 let products = [];
+let productList  = [];
 let panier;
 let URL = document.location.href;
 let x;
@@ -13,13 +14,21 @@ let Panier;
 let totalPanier = [];
 let y = 0;
 let contact = [];
+let form;
+let indice;
+let Widget;
+let selectQuantity;
+let numberQuantity;
+let selectElmt;
+let valeurselectionnee;
+let liste = [];
 
  ////////////* Connexion API */////////////////////
 
 const getAllTeddies = async () => {
   const response = await fetch('http://localhost:3000/api/teddies');
   data = await response.json()
-}
+  }
 
 async function teddies(){
   const teddies = await getAllTeddies();
@@ -32,7 +41,6 @@ async function teddies(){
            colors: data[i].colors };
     produit.push(ours); }
     
-
 ////////* Page Produit Principale */
 
     produit.forEach(element => {
@@ -52,16 +60,13 @@ async function teddies(){
       prix.innerHTML = element.price / 100 + " €";
       img.src = element.img;
   
-      var objet = 0;
-
- 
+      let objet = 0;
 
       container.onclick = function (){
 
         window.location.href = "produit.html?id=" + element.id;
-}})}
-
-
+}})
+}
 ///////////* Page produit Simple */////////////////////
 
   async function detailTeddies(){
@@ -77,6 +82,8 @@ async function teddies(){
              colors: data[i].colors };
       produit.push(ours); }
 
+    /* recuperation de l'id afin de créer un nouvel objet */
+    
       idNounours = location.search.substring(4);
 
       for (i=0 ; i<produit.length; i++){
@@ -86,75 +93,91 @@ async function teddies(){
                price: produit[i].price,
                description: produit[i].description,
                img: produit[i].img,
-               colors: produit[i].colors
-              
+               colors: produit[i].colors,
+               id: produit[i].id  
              }; 
             break;}
       }
 
-        var page_Liste_produit = document.querySelector('section')
-        page_Liste_produit.innerHTML = '';
+        let pageListeProduit = document.querySelector('section')
+        pageListeProduit.innerHTML = '';
     
-        page_Liste_produit = document.createElement('article');
-        let titre_produit = document.createElement("h2");
-        let prix_produit = document.createElement("h3");
-        let img_produit = document.createElement("img");
-        let description_produit = document.createElement("p");
-        let ajouteraupanier = document.createElement('button');
-        let select_Produit = document.createElement('select');
+        pageListeProduit = document.createElement('article');
+        let titreProduit = document.createElement("h2");
+        let prixProduit = document.createElement("h3");
+        let imgProduit = document.createElement("img");
+        let descriptionProduit = document.createElement("p");
+        let selectProduit = document.createElement('select');
         let selector = document.createElement('option');
-       
-        page_Liste_produit.appendChild(titre_produit);
-        page_Liste_produit.appendChild(prix_produit);
-        page_Liste_produit.appendChild(img_produit);
-        page_Liste_produit.appendChild(description_produit);
-        page_Liste_produit.appendChild(ajouteraupanier);
-        page_Liste_produit.appendChild(select_Produit);
-        select_Produit.appendChild(selector);
+        let selectQuantity = document.createElement('select');
+        let selectorQuantity = document.createElement('option');
+        let ajouterAuPanier = document.createElement('button');
         
-        description_produit.className = 'description';
+        pageListeProduit.appendChild(titreProduit);
+        pageListeProduit.appendChild(prixProduit);
+        pageListeProduit.appendChild(imgProduit);
+        pageListeProduit.appendChild(descriptionProduit);
+        pageListeProduit.appendChild(selectProduit);
+        selectProduit.appendChild(selector);
+        pageListeProduit.appendChild(selectQuantity);
+        selectQuantity.appendChild(selectorQuantity);
+        pageListeProduit.appendChild(ajouterAuPanier);
         
-        titre_produit.innerHTML = oursDetail.name;
-        prix_produit.innerHTML = oursDetail.price / 100 + " €";
-        img_produit.src = oursDetail.img;
-        description_produit.innerHTML = oursDetail.description;
-        ajouteraupanier.innerHTML = "ajouter au panier";
+        descriptionProduit.className = 'description';
+        
+        titreProduit.innerHTML = oursDetail.name;
+        prixProduit.innerHTML = oursDetail.price / 100 + " €";
+        imgProduit.src = oursDetail.img;
+        descriptionProduit.innerHTML = oursDetail.description;
+        ajouterAuPanier.innerHTML = "ajouter au panier";  
         selector.innerHTML = "Choisir une couleur";
+        selectorQuantity.innerHTML = "Quantités";
+        selectQuantity.id = 'yes';
     
         selector.className = "couleurs";
     
-        var container_PageProduit = document.querySelector('main');
-        container_PageProduit.appendChild(page_Liste_produit);
+        let containerPageProduit = document.querySelector('main');
+        containerPageProduit.appendChild(pageListeProduit);
 
-  
+  ///* Personnalisation du Produit *//////////////
 
       oursDetail.colors.forEach(colors => { 
     
       let couleur = document.createElement ('option');
-      select_Produit.appendChild(couleur);
+      selectProduit.appendChild(couleur);
       couleur.innerHTML = colors;
     });
-       
-        let objet = '';
+
+//////* Personnalisation quantités *////////
+
+for (i=0; i<11; i++){
+  let numberQuantity = document.createElement('option');
+  selectQuantity.appendChild(numberQuantity)
+  numberQuantity.innerHTML = i;
+}
+
+selectElmt = document.getElementById("yes");
+valeurselectionnee = selectElmt.options[selectElmt.selectedIndex].value;
+
+////////* Ajout au panier *//////////////////
 
         document.querySelector('button').addEventListener("click", function(){
-          ++ objet
-        localStorage.setItem (oursDetail.id , objet);
-        alert("Le produit à été ajouté à votre panier")
+        localStorage.setItem (oursDetail.id, selectElmt.options[selectElmt.selectedIndex].value);
+        alert("Le produit à été ajouté à votre panier");
+        indiceWidget();
         });
-   
-
-  let indice = document.getElementById('cart');
-  let indice_widget = document.createElement('p');
-  indice.appendChild(indice_widget);
-  indice_widget.innerHTML = localStorage.length ;
-  indice_widget.className = 'indicePanier';
-
       }
+
+///////////* Indice Panier */////////
+
+function indiceWidget(){
+indice = document.getElementById('numberPanier');
+indice.innerHTML = localStorage.length;
+}
 
  ////////////* Page Panier */////////////////////
 
-  async function Page_Panier(){
+  async function PagePanier(){
     const teddies = await getAllTeddies();
     for (i=0 ; i < data.length ; i++){
       ours = {name: data[i].name, 
@@ -170,85 +193,98 @@ async function teddies(){
     
     if(localStorage.length == 0){
 
-      var table = document.getElementById("panier_page_tab");
+      form = document.getElementById('formulaire');
+      form.innerHTML= '';
+
+      let table = document.getElementById("panierPageTab");
       table.innerHTML = "";
    
-      var panier_vide = document.createElement("p");
-      table.appendChild(panier_vide);
-      panier_vide.innerHTML = "Votre Panier est vide pour le moment";
-      panier_vide.className = "panier_vide";
-      var Lien_button = document.createElement("a");
-      panier_vide.appendChild(Lien_button);
-      Lien_button.setAttribute("href", "index.html")
-      var button_catalogue = document.createElement("button");
-      Lien_button.appendChild(button_catalogue);
-      button_catalogue.innerHTML = "Voir le catalogue produit";
-      button_catalogue.setAttribute ("href", 'index.html');
-      button_catalogue.className=("button_catalogue");
+      let panierVide = document.createElement("p");
+      table.appendChild(panierVide);
+      panierVide.innerHTML = "Votre Panier est vide pour le moment";
+      panierVide.className = "panier_vide";
+      let LienButton = document.createElement("a");
+      panierVide.appendChild(LienButton);
+      LienButton.setAttribute("href", "index.html")
+      let buttonCatalogue = document.createElement("button");
+      LienButton.appendChild(buttonCatalogue);
+      buttonCatalogue.innerHTML = "Voir le catalogue produit";
+      buttonCatalogue.setAttribute ("href", 'index.html');
+      buttonCatalogue.className=("button_catalogue");
    }
 
   ////////////* Création tableau Panier . */////////////////////
 
    produit.forEach(element => { 
 
-    var tableau = document.querySelector('table')
+    let tableau = document.querySelector('table')
 
-    if (localStorage.getItem(element.id) > 0){
+    if (localStorage.getItem( element.id) > 0){
     
-    var tableau = document.querySelector('table')
-    var ligne1 = document.createElement ('tr')
+    let tableau = document.querySelector('table')
+    let ligne1 = document.createElement ('tr')
     tableau.appendChild(ligne1);
-    var produit_panier = document.createElement('th')
-    ligne1.appendChild(produit_panier);
-    var quantité_P1 = document.createElement('th')
+    let produitPanier = document.createElement('th')
+    ligne1.appendChild(produitPanier);
+    let quantité_P1 = document.createElement('th')
     ligne1.appendChild(quantité_P1);
-    var prix_P1 = document.createElement('th')
+    let prixUnitaire = document.createElement('th')
+    ligne1.appendChild(prixUnitaire);
+    
+    let prix_P1 = document.createElement('th')
     ligne1.appendChild(prix_P1)
     prix_P1.className = 'prix';
-    var supprimer = document.createElement('th')
+    let supprimer = document.createElement('th')
     ligne1.appendChild(supprimer)
-    produit_panier.innerHTML = element.name;
+
+    produitPanier.innerHTML = element.name;
     quantité_P1.innerHTML = localStorage.getItem(element.id);
     prix = localStorage.getItem(element.id) * parseInt(element.price);
     prix_P1.innerHTML = prix / 100;
+    prixUnitaire.innerHTML = parseInt(element.price)/100;
 
 ////////////* création de l'objet panier et tableau produit pour API */////////////////////
 
-   panier = {id: element.id, price: localStorage.getItem(element.id) * parseInt(element.price) };
-   totalpanier.push(panier);
-   article = {id: element.id};
-   products.push(article)
+   panier = {id: element.id, price: localStorage.getItem(element.id) * parseInt(element.price), quantité: localStorage.getItem(element.id) };
+   totalPanier.push(panier);
+   article = [element.id];
+   products.push(article);
 
+   for (i=0; i<totalPanier.length; i++){ 
+    let z = parseInt(totalPanier[i].quantité);
+    for (i=0; i<z ; i++){
+      liste.push(element.id)
+    }
+   }
   ////////////* Delete element Panier */////////////////////
 
    supprimer.innerHTML = 'supprimer'; 
    supprimer.onclick = function (){
    localStorage.removeItem(element.id);
    location.reload();   
+   };;    
+}})
 
-   };;}})
-
-    ////////////* Total de la commande */////////////////////
+////////////* Total de la commande */////////////////////
   
-  for (i=0; i<totalpanier.length; i++){
-    var x = totalpanier[i].price ;
-     y += x;}
- 
-  var commande = document.getElementById("total_commande")
-  var totalC = document.createElement ('p')
-  totalC.className = "total";
-  commande.appendChild(totalC);
-  totalC.innerHTML = y/100 + " €";
+for (i=0; i<totalPanier.length; i++){
+  let x = totalPanier[i].price ;
+   y += x;}
 
-  sessionStorage.setItem("prixTotal" , y);
-  }
+let commande = document.getElementById("total_commande")
+let totalC = document.createElement ('p')
+totalC.className = "total";
+commande.appendChild(totalC);
+totalC.innerHTML = y/100 + " €";
 
+sessionStorage.setItem("prixTotal" , y);
+}
  ////////////* Formulaire */////////////////////
 
 function sendForm(){ 
  
   let submit = document.getElementById("button_form");
-  
+
   submit.addEventListener("click", function(e){
    
    e.preventDefault();
@@ -267,9 +303,9 @@ function sendForm(){
       email: email,
     };
 
-    let myOrder =  { contact, products }
+    let myOrder =  {contact, liste}
     console.log(myOrder);
-
+ 
     fetch('http://localhost:3000/api/teddies/order', {
                     method: 'post',
                     headers: {
@@ -284,7 +320,5 @@ function sendForm(){
                 .catch(function(error) {
                     console.error("Erreur", error);
                 })  
-               window.location.href = "PageValidation.html"; 
-               } ) }
-
- 
+               /* window.location.href = "PageValidation.html"; */
+              })}

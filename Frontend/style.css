@@ -4,7 +4,6 @@ body {
 }
 
 header {
-  height: 100px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -31,6 +30,7 @@ header i {
 main {
   background-color: white;
   padding-bottom: 70px;
+  min-height: 400px;
 }
 
 main h1 {
@@ -54,6 +54,7 @@ main section {
 }
 
 main section div {
+  border-radius: 10px;
   border: 1px solid black;
   width: 300px;
   height: 300px;
@@ -121,6 +122,7 @@ footer a {
 
 /* Page Produit */
 article {
+  border-radius: 10px;
   width: 60%;
   height: 40%;
   border: 1px solid black;
