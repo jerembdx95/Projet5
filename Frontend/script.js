@@ -162,9 +162,14 @@ valeurselectionnee = selectElmt.options[selectElmt.selectedIndex].value;
 ////////* Ajout au panier *//////////////////
 
         document.querySelector('button').addEventListener("click", function(){
+          if ( selectElmt.options[selectElmt.selectedIndex].value == "Quantités"){
+            alert(" Merci de selectionner une quantité ")
+          }
+          else { 
         localStorage.setItem (oursDetail.id, selectElmt.options[selectElmt.selectedIndex].value);
-        alert("Le produit à été ajouté à votre panier");
+        alert(" Félicitation ! Le produit à été ajouté à votre panier");
         indiceWidget();
+      }
         });
       }
 
@@ -261,7 +266,7 @@ indice.innerHTML = localStorage.length;
    supprimer.innerHTML = 'supprimer'; 
    supprimer.onclick = function (){
    localStorage.removeItem(element.id);
-   location.reload();   
+    location.reload();
    };;    
 }})
 
