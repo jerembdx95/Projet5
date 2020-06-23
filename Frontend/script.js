@@ -286,6 +286,7 @@ sessionStorage.setItem("prixTotal" , y);
 }
  ////////////* Formulaire */////////////////////
 
+
 function sendForm(){ 
  
   let submit = document.getElementById("button_form");
@@ -325,5 +326,7 @@ function sendForm(){
                 .catch(function(error) {
                     console.error("Erreur", error);
                 })  
-               /* window.location.href = "PageValidation.html"; */
+                window.location.href = "PageValidation.html"; 
               })}
+
+              
