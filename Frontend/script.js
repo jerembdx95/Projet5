@@ -258,7 +258,7 @@ indice.innerHTML = localStorage.length;
    for (i=0; i<totalPanier.length; i++){ 
     let z = parseInt(totalPanier[i].quantité);
     for (i=0; i<z ; i++){
-      liste.push(element.id)
+      products.push(element.id)
     }
    }
   ////////////* Delete element Panier */////////////////////
@@ -292,9 +292,9 @@ function sendForm(){
   let submit = document.getElementById("button_form");
 
   submit.addEventListener("click", function(e){
-   
    e.preventDefault();
 
+  
     let nom = document.getElementById("nom").value;
     let prenom = document.getElementById("prenom").value;
     let email = document.getElementById("email").value;
@@ -309,7 +309,7 @@ function sendForm(){
       email: email,
     };
 
-    let myOrder =  {contact, liste}
+    let myOrder =  {contact, products}
     console.log(myOrder);
  
     fetch('http://localhost:3000/api/teddies/order', {
@@ -328,5 +328,4 @@ function sendForm(){
                 })  
                 window.location.href = "PageValidation.html"; 
               })}
-
               
