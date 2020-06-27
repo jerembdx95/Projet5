@@ -1,5 +1,4 @@
-///* Déclaration letiables *//////
-
+///* Déclaration variaiables *//////
 let xhr = new XMLHttpRequest();
 let ours ;
 let data;
@@ -22,6 +21,7 @@ let numberQuantity;
 let selectElmt;
 let valeurselectionnee;
 let liste = [];
+let orderId = [];
 
  ////////////* Connexion API */////////////////////
 
@@ -286,15 +286,13 @@ sessionStorage.setItem("prixTotal" , y);
 }
  ////////////* Formulaire */////////////////////
 
-
 function sendForm(){ 
  
-  let submit = document.getElementById("button_form");
+  let submit = document.getElementById("Form");
 
-  submit.addEventListener("click", function(e){
+  submit.addEventListener('submit', function(e){
    e.preventDefault();
 
-  
     let nom = document.getElementById("nom").value;
     let prenom = document.getElementById("prenom").value;
     let email = document.getElementById("email").value;
@@ -320,12 +318,14 @@ function sendForm(){
                     body: JSON.stringify(myOrder)
                 })
                 .then(function(response) {
-                    return response.json();
-                    
+                  console.log(response.json({orderId}));
+            /*    window.location.href = "PageValidation.html"; */
+                  return response.json();
+
                 })
                 .catch(function(error) {
                     console.error("Erreur", error);
                 })  
-                window.location.href = "PageValidation.html"; 
+               
               })}
-              
+
