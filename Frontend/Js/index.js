@@ -21,7 +21,7 @@ let numberQuantity;
 let selectElmt;
 let valeurselectionnee;
 let liste = [];
-let orderId = [];
+
 
  ////////////* Connexion API */////////////////////
 

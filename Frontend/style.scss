@@ -4,7 +4,6 @@ $Orinoco_Color : #F3EAF1;
 
 body{
     background-color: $Orinoco_Color;;
-   
 }
 header{
     display: flex;
@@ -35,7 +34,7 @@ main{
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
     }
-    section{
+    #liste_produit{
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
@@ -303,6 +302,5 @@ input{
     flex-wrap: wrap;
     margin-bottom: 250px;
 }
-
 }
    
