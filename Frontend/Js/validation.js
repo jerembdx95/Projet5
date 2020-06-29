@@ -1,13 +1,13 @@
 /* Numéros de commande */
-function entierAleatoire(min, max)
-{
- return Math.floor(Math.random() * (max - min + 1)) + min;
-}
 
 var numeros = document.getElementById('numeros_commande');
-numeros.innerHTML = entierAleatoire(100, 10000000);
+numeros.innerHTML = localStorage.getItem("orderData");
 
 /* Prix Total de la commande */
 
 var Validation_totale = document.getElementById("final_price");
 Validation_totale.innerHTML = sessionStorage.getItem("prixTotal")/100 + " €";
+
+/* Le localStorage se vide si on retourne en arrière afin d'éviter les erreurs */
+
+localStorage.clear();

@@ -3,18 +3,18 @@ let orderId;
 function sendForm(){ 
  
     let submit = document.getElementById("Form");
-  
+
     submit.addEventListener('submit', function(e){
      e.preventDefault();
-    
-      contact = {
-        lastName: nom,
-        firstName: prenom,
-        address: adresse,
-        city: ville,
-        email: email,
-      };
-     
+
+     contact = {
+      lastName: nom,
+      firstName: prenom,
+      address: adresse,
+      city: ville,
+      email: email,
+    };
+
       let myOrder =  {contact, products}
       console.log(myOrder);
    
@@ -26,11 +26,13 @@ function sendForm(){
         body: JSON.stringify(myOrder)
     })
     .then(function(response) {
-      console.log(response.json());
-    /*  window.location.href = "PageValidation.html"; */
       return response.json();
     })
-
+    .then((orderData) => {
+      localStorage.clear();
+      localStorage.setItem("orderData", JSON.stringify(orderData.orderId));
+     /* window.location.href = "PageValidation.html"; */
+    })
     .catch(function(error) {
         console.error("Erreur", error);
     })  
