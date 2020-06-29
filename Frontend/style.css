@@ -272,6 +272,11 @@ input, textarea {
   border: 1px solid #999;
 }
 
+input:invalid, textarea:invalid {
+  -webkit-box-shadow: 0 0 2px 1px red;
+          box-shadow: 0 0 2px 1px red;
+}
+
 input:focus, textarea:focus {
   border-color: #000;
 }

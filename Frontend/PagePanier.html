@@ -33,11 +33,11 @@
             <form  method="POST" name="form_contact" id="Form" >
                 <div>
                     <label for="nom">Nom :</label>
-                    <input type="text" id="nom" name="nom" placeholder="Renseignez votre Nom" required  >
+                    <input type="text" id="nom" name="nom" placeholder="Renseignez votre Nom" required  pattern="[A-Za-z' -]+">
                 </div>
                 <div>
                     <label for="prenom">Prénom :</label>
-                    <input type="text" id="prenom" name="prenom" placeholder="Renseignez votre Prénom" required  >
+                    <input type="text" id="prenom" name="prenom" placeholder="Renseignez votre Prénom" required pattern="[A-Za-z' -]+" >
                 </div>
                 <div>
                     <label for="email">e-mail :</label>
@@ -45,11 +45,11 @@
                 </div>
                 <div>
                     <label for="adresse">Adresse :</label>
-                    <input type="text" id="adresse" name="adresse" placeholder="Renseignez votre Adresse" required >
+                    <input type="text" id="adresse" name="adresse" placeholder="Renseignez votre Adresse" required pattern="[0-9A-Za-z' -]+" >
                 </div>
                 <div>
                     <label for="ville">Ville :</label> 
-                    <input type="text" id="ville" name="ville" placeholder="Renseignez votre Ville" required>
+                    <input type="text" id="ville" name="ville" placeholder="Renseignez votre Ville" required pattern="[A-Za-z' -]+">
                 </div>
                 <div class="carte">
                     <label  id="paiement">  Choix du moyen de paiement : </label>
