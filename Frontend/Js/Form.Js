@@ -8,11 +8,11 @@ function sendForm(){
      e.preventDefault();
 
      contact = {
-      lastName: nom,
-      firstName: prenom,
-      address: adresse,
-      city: ville,
-      email: email,
+      lastName: nom.value,
+      firstName: prenom.value,
+      address: adresse.value,
+      city: ville.value,
+      email: email.value,
     };
 
       let myOrder =  {contact, products}
@@ -31,7 +31,7 @@ function sendForm(){
     .then((orderData) => {
       localStorage.clear();
       localStorage.setItem("orderData", JSON.stringify(orderData.orderId));
-     /* window.location.href = "PageValidation.html"; */
+      window.location.href = "PageValidation.html"; 
     })
     .catch(function(error) {
         console.error("Erreur", error);
