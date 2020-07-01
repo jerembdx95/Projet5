@@ -93,7 +93,7 @@ async function detailTeddies(){
 
 //////* Personnalisation quantités *////////
 
-for (i=0; i<11; i++){
+for (i=1; i<11; i++){
   let numberQuantity = document.createElement('option');
   selectQuantity.appendChild(numberQuantity)
   numberQuantity.innerHTML = i;
@@ -114,10 +114,9 @@ valeurselectionnee = selectElmt.options[selectElmt.selectedIndex].value;
         indiceWidget();
       }
         });
-      
+        
 ///////////* Indice Panier */////////
-}
-
+      }
 function indiceWidget(){
 indice = document.getElementById('numberPanier');
 indice.innerHTML = localStorage.length;
