@@ -3,14 +3,14 @@
  async function PagePanier(){
     const teddies = await getAllTeddies();
     for (i=0 ; i < data.length ; i++){
-      ours = {name: data[i].name, 
+      teddie = {name: data[i].name, 
               id: data[i]._id, 
               description: data[i].description, 
               img: data[i].imageUrl,
               price: data[i].price, 
               colors: data[i].colors };
 
-      produit.push(ours); }
+      produit.push(teddie); }
     
 ////////////* Erreur Panier Vide . */////////////////////
     
@@ -60,6 +60,8 @@
     let supprimer = document.createElement('th')
     ligne1.appendChild(supprimer)
 
+    supprimer.className = ("deleteCursor");
+
     produitPanier.innerHTML = element.name;
     quantité_P1.innerHTML = localStorage.getItem(element.id);
     prix = localStorage.getItem(element.id) * parseInt(element.price);
@@ -91,14 +93,15 @@
 ////////////* Total de la commande */////////////////////
   
 for (i=0; i<totalPanier.length; i++){
-  let x = totalPanier[i].price ;
-   y += x;}
+  let ProductPrice = totalPanier[i].price ;
+   totalPrice += ProductPrice;}
 
 let commande = document.getElementById("total_commande")
 let totalC = document.createElement ('p')
 totalC.className = "total";
 commande.appendChild(totalC);
-totalC.innerHTML = y/100 + " €";
+totalC.innerHTML = totalPrice/100 + " €";
 
-sessionStorage.setItem("prixTotal" , y);
+sessionStorage.setItem("prixTotal" , totalPrice);
 }
+

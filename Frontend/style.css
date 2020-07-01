@@ -70,6 +70,7 @@ main #liste_produit div {
   -moz-animation: .1s ease-in-out;
   -o-animation: .1s ease-in-out;
   transition: .1s ease-in-out;
+  cursor: pointer;
 }
 
 main #liste_produit div:hover {
@@ -158,6 +159,7 @@ article button {
   -o-animation: .1s ease-in-out;
   transition: .1s ease-in-out;
   margin-bottom: 20px;
+  cursor: pointer;
 }
 
 article button:hover {
@@ -220,6 +222,10 @@ td, th {
   background: #d34836;
 }
 
+.deleteCursor {
+  cursor: pointer;
+}
+
 /* Formulaire */
 #paiement {
   display: inline;
@@ -234,6 +240,7 @@ td, th {
   font: bold 15px Arial;
   color: #fff;
   width: 160px;
+  cursor: pointer;
 }
 
 #button_form:hover {

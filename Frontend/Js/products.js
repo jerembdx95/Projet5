@@ -1,34 +1,42 @@
-///////////* Page produit Simple */////////////////////
+///////////* Page produit Simple *////////////////////
 
 async function detailTeddies(){
      
     const detailTeddies = await getAllTeddies();
 
     for (i=0 ; i < data.length ; i++){
-      ours = {name: data[i].name, 
+      teddie = {name: data[i].name, 
              id: data[i]._id, 
              description: data[i].description, 
              img: data[i].imageUrl, 
              price: data[i].price, 
              colors: data[i].colors };
-      produit.push(ours); }
+      produit.push(teddie); 
+      id.push(data[i]._id)
+    }
 
     /* recuperation de l'id afin de créer un nouvel objet */
     
-      idNounours = location.search.substring(4);
+    idNounours = location.search.substring(4);
 
       for (i=0 ; i<produit.length; i++){
         if (idNounours == produit[i].id){
-          oursDetail = {
+          teddieDetail = {
                name: produit[i].name,
                price: produit[i].price,
                description: produit[i].description,
                img: produit[i].img,
                colors: produit[i].colors,
                id: produit[i].id  
-             }; 
-            break;}
-      }
+             };
+            }
+    }
+
+    if(id.includes(idNounours) == false){
+      let error = document.getElementById('title');
+      error.innerHTML = "Oups le produit recherché n'existe pas! Vous allez êtes redirigés vers la page d'accueil :) "
+      window.location.href = "index.html" ;
+    }
 
         let pageListeProduit = document.querySelector('section')
         pageListeProduit.innerHTML = '';
@@ -56,10 +64,10 @@ async function detailTeddies(){
         
         descriptionProduit.className = 'description';
         
-        titreProduit.innerHTML = oursDetail.name;
-        prixProduit.innerHTML = oursDetail.price / 100 + " €";
-        imgProduit.src = oursDetail.img;
-        descriptionProduit.innerHTML = oursDetail.description;
+        titreProduit.innerHTML = teddieDetail.name;
+        prixProduit.innerHTML = teddieDetail.price / 100 + " €";
+        imgProduit.src = teddieDetail.img;
+        descriptionProduit.innerHTML = teddieDetail.description;
         ajouterAuPanier.innerHTML = "ajouter au panier";  
         selector.innerHTML = "Choisir une couleur";
         selectorQuantity.innerHTML = "Quantités";
@@ -72,7 +80,7 @@ async function detailTeddies(){
 
   ///* Personnalisation du Produit *//////////////
 
-      oursDetail.colors.forEach(colors => { 
+  teddieDetail.colors.forEach(colors => { 
     
       let couleur = document.createElement ('option');
       selectProduit.appendChild(couleur);
@@ -97,14 +105,14 @@ valeurselectionnee = selectElmt.options[selectElmt.selectedIndex].value;
             alert(" Merci de selectionner une quantité ")
           }
           else { 
-        localStorage.setItem (oursDetail.id, selectElmt.options[selectElmt.selectedIndex].value);
+        localStorage.setItem (teddieDetail.id, selectElmt.options[selectElmt.selectedIndex].value);
         alert(" Félicitation ! Le produit à été ajouté à votre panier");
         indiceWidget();
       }
         });
-      }
-
+      
 ///////////* Indice Panier */////////
+}
 
 function indiceWidget(){
 indice = document.getElementById('numberPanier');

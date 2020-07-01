@@ -1,17 +1,17 @@
 ///* Déclaration variaiables *//////
 let xhr = new XMLHttpRequest();
-let ours ;
+let teddie ;
 let data;
 let produit = [];
 let products = [];
 let productList  = [];
 let panier;
 let URL = document.location.href;
-let x;
+let ProductPrice;
 let prix ;
 let Panier;
 let totalPanier = [];
-let y = 0;
+let totalPrice = 0;
 let contact = [];
 let form;
 let indice;
@@ -21,7 +21,7 @@ let numberQuantity;
 let selectElmt;
 let valeurselectionnee;
 let liste = [];
-
+let id = [];
 
  ////////////* Connexion API */////////////////////
 
@@ -33,17 +33,17 @@ const getAllTeddies = async () => {
 async function teddies(){
   const teddies = await getAllTeddies();
   for (i=0 ; i < data.length ; i++){
-    ours = {name: data[i].name, 
+    teddie = {name: data[i].name, 
            id: data[i]._id, 
            description: data[i].description, 
            img: data[i].imageUrl, 
            price: data[i].price, 
            colors: data[i].colors };
-    produit.push(ours); }
+    produit.push(teddie); }
     
 ////////* Page Produit Principale */
 
-    produit.forEach(element => {
+produit.forEach(element => {
 
       let container = document.createElement("div");
       let titre = document.createElement("h2");

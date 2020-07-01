@@ -54,6 +54,7 @@ main{
         -moz-animation: .1s ease-in-out;
         -o-animation: .1s ease-in-out;
         transition: .1s ease-in-out; 
+        cursor: pointer;
         &:hover {
         -webkit-transform: scale(1.1);
         -moz-animation: scale(1.1);
@@ -126,6 +127,7 @@ article{
         -o-animation: .1s ease-in-out;
         transition: .1s ease-in-out; 
         margin-bottom: 20px;
+        cursor: pointer;
         &:hover{
             background-color: #9D62DA;
                 -webkit-transform: scale(1.1);
@@ -180,6 +182,9 @@ table {
             background:#d34836;
         }
   }
+  .deleteCursor{
+      cursor: pointer;
+  }
 
   /* Formulaire */
 
@@ -196,6 +201,7 @@ table {
       font:bold 15px Arial;
       color:#fff;
       width:160px; 
+      cursor: pointer;
       &:hover{
           background: red;
       }
