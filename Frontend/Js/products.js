@@ -32,11 +32,15 @@ async function detailTeddies(){
             }
     }
 
+    /* Erreur en cas de mauvais Id */
+
     if(id.includes(idNounours) == false){
       let error = document.getElementById('title');
       error.innerHTML = "Oups le produit recherché n'existe pas! Vous allez êtes redirigés vers la page d'accueil :) "
       window.location.href = "index.html" ;
     }
+
+    /* création page produit */
 
         let pageListeProduit = document.querySelector('section')
         pageListeProduit.innerHTML = '';
