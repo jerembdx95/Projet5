@@ -1,3 +1,4 @@
+
 ///////////* Page produit Simple *////////////////////
 
 async function detailTeddies(){
@@ -14,7 +15,6 @@ async function detailTeddies(){
       produit.push(teddie); 
       id.push(data[i]._id)
     }
-
     /* recuperation de l'id afin de créer un nouvel objet */
     
     idNounours = location.search.substring(4);
@@ -31,7 +31,6 @@ async function detailTeddies(){
              };
             }
     }
-
     /* Erreur en cas de mauvais Id */
 
     if(id.includes(idNounours) == false){
@@ -109,15 +108,24 @@ valeurselectionnee = selectElmt.options[selectElmt.selectedIndex].value;
             alert(" Merci de selectionner une quantité ")
           }
           else { 
+            if (localStorage[teddieDetail.id] > 0){ 
+              let quantitepresente = localStorage[teddieDetail.id]
+              let newQuantité = parseInt(quantitepresente) + parseInt(selectElmt.options[selectElmt.selectedIndex].value);
+              localStorage.setItem (teddieDetail.id, newQuantité )
+      }
+      else{
         localStorage.setItem (teddieDetail.id, selectElmt.options[selectElmt.selectedIndex].value);
         alert(" Félicitation ! Le produit à été ajouté à votre panier");
         indiceWidget();
       }
+    }
         });
         
 ///////////* Indice Panier */////////
       }
 function indiceWidget(){
+
+
 indice = document.getElementById('numberPanier');
 indice.innerHTML = localStorage.length;
 }
