@@ -1,11 +1,7 @@
 
+if (localStorage.length == 1){ 
+
 let x = document.getElementsByClassName("Tableau_final");
-
-
-if( sessionStorage.length == 0 ){
-
-     x.innerHTML = "yes";
-}
 
 /* Numéros de commande */
 
@@ -20,3 +16,16 @@ Validation_totale.innerHTML = sessionStorage.getItem("prixTotal")/100 + " €";
 /* Le localStorage se vide si on retourne en arrière afin d'éviter les erreurs */
 
 localStorage.clear();
+}
+
+
+else{
+    let titre = document.querySelector('h1')
+    titre.innerHTML = 'Error 404';
+    let final = document.getElementById('Tableau_final');
+    final.innerHTML = "";
+
+   
+    setTimeout( function(){ 
+     window.location.href = "index.html"; }, 1000)
+}

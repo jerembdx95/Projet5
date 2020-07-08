@@ -298,14 +298,14 @@ input {
 }
 
 /*page Validation */
-.Tableau_final {
+#Tableau_final {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   margin-left: 15px;
 }
 
-.Tableau_final div {
+#Tableau_final div {
   margin-left: 4px;
 }
 
