@@ -1,3 +1,12 @@
+
+let x = document.getElementsByClassName("Tableau_final");
+
+
+if( sessionStorage.length == 0 ){
+
+     x.innerHTML = "yes";
+}
+
 /* Numéros de commande */
 
 var numeros = document.getElementById('numeros_commande');

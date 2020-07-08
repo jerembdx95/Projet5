@@ -112,6 +112,7 @@ valeurselectionnee = selectElmt.options[selectElmt.selectedIndex].value;
               let quantitepresente = localStorage[teddieDetail.id]
               let newQuantité = parseInt(quantitepresente) + parseInt(selectElmt.options[selectElmt.selectedIndex].value);
               localStorage.setItem (teddieDetail.id, newQuantité )
+              alert(" Félicitation ! Le produit à été ajouté à votre panier");
       }
       else{
         localStorage.setItem (teddieDetail.id, selectElmt.options[selectElmt.selectedIndex].value);
@@ -124,8 +125,6 @@ valeurselectionnee = selectElmt.options[selectElmt.selectedIndex].value;
 ///////////* Indice Panier */////////
       }
 function indiceWidget(){
-
-
 indice = document.getElementById('numberPanier');
 indice.innerHTML = localStorage.length;
 }
